@@ -95,6 +95,28 @@
   text-align: right;
 }
 
+.active-task{
+  cursor: pointer;
+}
+
+.modal-body{
+  height:500px;
+  width:600px;
+}
+
+#taskDay{
+  width:50%;
+}
+
+#taskName{
+  width:80%;
+}
+
+#taskDesc{
+  width:80%;
+  height:75px;
+}
+
 #hour-container{
   margin-top:30px;
 }

@@ -93,4 +93,15 @@ for(var i = 0; i < days.length;i++){
     
 }
 
+$(".active-task").on("click", function (event) {
+    console.log("this works")
+    var selectTask = $(this).attr("id")
+
+    $("#taskDay").val(tasks[selectTask].taskDay);
+    $("#taskName").val(tasks[selectTask].taskName);
+    $("#taskDesc").val(tasks[selectTask].comment);
+
+    $("#selectTaskModal").modal("toggle")
+});
+
 });

@@ -19,14 +19,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     task_stime:{
-      type: DataTypes.TIME,
+      type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
     task_etime:{
-      type: DataTypes.TIME,
+      type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         len: [1]

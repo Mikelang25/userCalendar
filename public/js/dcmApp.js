@@ -22,12 +22,6 @@ $.each(timeOfDayArray, function () {
             .text(this));
 });
 
-
-
-
-
-
-
 function parkVisit() {
     console.log("user activity/city/state submitted")
     $(".userViewActivityPanelHeader").html("Choose the Park you want to visit by clicking on the panel:")
@@ -253,11 +247,6 @@ function userGeneratedEvent() {
     userFinalEventEntrySubmitButton();
 }
 
-
-
-
-
-
 $("#userSubmitInitialActivityButton").on("click", function (userEnterActivityCityState) {
     event.preventDefault();
 
@@ -301,6 +290,7 @@ var dayOfWeekForDatabase = this.eventDayOfWeek;
 console.log(dayOfWeekForDatabase);
 var startTimeForDatabase = this.stTime;
 console.log(startTimeForDatabase);
+
 var endTimeForDatabase = this.enTime;
 console.log(endTimeForDatabase);
 
@@ -319,13 +309,19 @@ function userFinalEventEntrySubmitButton(){
 
     $("#userFinalEventEntrySubmitButton").on("click", function (event) {
         event.preventDefault();
+var convertingStartTimeToInteger = $("#startTimeFromActivityPanelInput").val();
+convertingStartTimeToInteger = convertingStartTimeToInteger.split(':')[0];
+console.log(convertingStartTimeToInteger);
+var convertingEndTimeToInteger = $("#endTimeFromActivityPanelInput").val();
+convertingEndTimeToInteger = convertingEndTimeToInteger.split(':')[0];
+console.log(convertingEndTimeToInteger);
 
         var newTask = {
           user_id: 7,
           task_name: $("#locationFromActivityPanelInput").val(),
           task_day: $("#dayOfWeekFromActivityPanelInput").val(),
-          task_stime: $("#startTimeFromActivityPanelInput").val(),
-          task_etime: $("#endTimeFromActivityPanelInput").val(),
+          task_stime: convertingStartTimeToInteger,
+          task_etime: convertingEndTimeToInteger,
           task_comment: $("#commentFromActivityPanelInput").val()
         }
         console.log(newTask)

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+
+
+<title>userCalendar</title>
+
+</head>
+<body>
+
+
+
+
+    <div class="container">
+
+    
+
+
+
+        <h2>Modal Example</h2>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#inputModal">Open Modal</button>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="inputModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+             
+              <div class="modal-body">
+               
+                <div class="form-group">
+                    <h3><strong>What do you want to do:</strong></h3>
+                   
+                    <select class="form-control" id="userActivityChoice">
+                        <option value=""></option>
+                        <option value="goForAHike">Go for a Hike</option>
+
+                        <option value="goToConcert">Go to Concert</option>
+                        <option value="goToSportingEvent">Go to a Sporting Event</option>
+                        <option value="goOutToEat">Go out to Eat</option>
+                    
+                    </select>
+  
+                </div>
+
+                <div class="userDayOfWeekInput">
+                    <h3><strong>Enter a day of the week:</strong></h3>
+
+                    <select class="form-control" id="userActivityDayDetails">
+                        <option value=""></option>
+                        
+                    </select>
+                </div>
+                <div class="userStartTimeInput">
+                    <h3><strong>Enter a start time:</strong></h3>
+
+                    <select class="form-control" id="userActivityTimeStart">
+                        <option value=""></option>
+                                 </select>
+                </div>
+
+                <div class="userEndTimeInput">
+                  <h3><strong>Enter an End time:</strong></h3>
+
+                  <select class="form-control" id="userActivityTimeEnd">
+                      <option value=""></option>
+                               </select>
+              </div>
+
+
+                <div class="locationInput">
+                  <h3><strong>Enter the location of the activity:</strong></h3>
+
+                  <input class="form-control" id="userCity" type="text" placeholder="City">
+                  <input class="form-control" id="userState" type="text" placeholder="State (2-letter abbreviation)">
+
+
+              </div>
+
+                <button id="userChoiceSubmitButton" data-toggle="modal" data-target="#displayModal">Submit</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="displayModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+   
+     
+      <div class="modal-body">
+       
+        <div id = "destinationTitle">Choose your destination:</div>
+        <div class = "destinationChoice">
+
+        </div>
+</div>
+       
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="modalForUserFinalEntry" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+   
+     
+      <div class="modal-body">
+       
+        <div class ="finalUserEntry">Confirm Your Details:</div>
+     <div id="finalDestination"><strong>Destination:  </strong></div>
+     <div id="finalDayOfTheWeek"><strong>Day of Week:  </strong></div>
+     <div id="finalStartTime"><strong>Start Time:  </strong></div>
+     <div id="finalEndTime"><strong>End Time:  </strong></div>
+     <br>
+     <br>
+     <button id="finalEntrySubmit">Confirm</button>
+
+        </div>
+</div>
+       
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+
+<script src="./app.js"></script>
+
+</html>

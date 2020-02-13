@@ -1,0 +1,24 @@
+
+#mymodal{
+    width:1000px;
+}
+.destinationButton{
+    font-size: 25px;
+    background-color: white;
+    color:blue;
+    text-align: center;
+    
+}
+#destinationTitle{
+
+    font-size: 30px;
+    font-weight: bolder;
+}
+.finalUserEntry{
+   
+    font-size: 30px;
+    font-weight: bolder; 
+}
+.destinationChoice{
+    display: block;
+}

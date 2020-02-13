@@ -4,6 +4,7 @@ var days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "s
 $(document).ready(function () {
 
     $.get("/api/tasks", function (data) {
+        console.log(data)
         var tasks = data;
         console.log('testing:', tasks[1]);
         for (var i = 0; i < days.length; i++) {

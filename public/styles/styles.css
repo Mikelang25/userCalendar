@@ -139,3 +139,73 @@
 ::-webkit-scrollbar {
   width: 0px;
 }
+/*DCM styles
+
+h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* #eventSpace{
+    border:solid;
+    border-width: ;
+} */
+.activityForm{
+  padding: 5px;
+      border:solid;
+      border-width: 5px;
+      border-color: black;
+  }
+  .userViewActivityPanel{
+      border: solid, 5px;
+  }
+  
+  #userSubmitInitialActivityButton{
+      display: block;
+      margin: 0 auto;
+      margin-top: 5px;
+  }
+  .destinationDiv{
+      font-weight: bold;
+      color: blue;
+      width: 100%;
+      padding: 5px;
+      border:solid;
+      border-width: 5px;
+      border-color: black;
+      margin-bottom: 5px;
+  
+  }
+  
+  .userViewActivityPanelHeader{
+      font-size: 20px;
+      font-weight: bold;
+  }
+  
+  .destinationButton{
+      font-size: 25px;
+      background-color: white;
+      color:blue;
+      text-align: center;
+      
+  }
+  #destinationTitle{
+  
+      font-size: 30px;
+      font-weight: bolder;
+  }
+  .finalUserEntry{
+     
+      font-size: 30px;
+      font-weight: bolder; 
+  }
+  .destinationChoice{
+      display: block;
+  }
+  
+  .textAreaFinalEntryModal{
+      width:100%;
+  
+  }
+

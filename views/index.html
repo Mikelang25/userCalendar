@@ -27,8 +27,9 @@
         <div class="col-md-2"></div>
     </div>
     <div class="row">
+       
         <div id="hour-container" class="col-md-1"></div>
-        <div class="col-md-9 text-center">
+        <div class="col-md-9 text-center" class="container-fluid">
             <div class="row">
                 <div class="lbl-day">Sunday</div>
                 <div class="lbl-day">Monday</div>
@@ -61,20 +62,76 @@
                     ​
                 </div>
             </div>
-        </div>
+            </div>
+    
+        <!--DCM added what do you want to do panel-->
         <div class="col-md-2">
-            <div class="row">
-                <div class="col-md-12 text-left">
-                    <button id="btn-new-task" type="button">New Event</button>
-                </div>
-            </div>
-            <div class="row">
-                <div id="upcoming-tasks" class="col-md-10">
-                    ​
+            <div class="container-fluid">
+                <div class="row">
+
+                   <div class="activityForm">
+                    <div class="form-group">
+                        <h3>What do you want to do:</h3>
+                        <select class="form-control" id="userActivityChoice">
+                            <option value=""></option>
+                            <option value="goForAHike">Go for a Hike</option>
+                            <option value="goToConcert">Go to Concert</option>
+                            <option value="goToSportingEvent">Go to a Sporting Event</option>
+                            <option value="goOutToEat">Go out to Eat</option>
+                            <option value="userGeneratedEvent">Add a user generated Event</option>
+                        </select>
+                    </div>
+                    <div class="locationInput">
+                        <h3>Enter the location of the activity:</h3>
+                        <input class="form-control" id="userCity" type="text" placeholder="City">
+                        <input class="form-control" id="userState" type="text"
+                            placeholder="State (2-letter abbreviation)">
+                    </div>
+                    <button id="userSubmitInitialActivityButton">Submit</button>
+                   </div>
+                   <div class = userViewActivityPanelHeader>
+                    </div>
+                   <div class="userViewActivityPanel">
+                   </div>
+                  </div>
+                 </div>
+                 </div>
+        </div>
+  
+        <!-- DCM Modal for final entry added-->
+        <div class="modal fade" id="modalForUserFinalEntry" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <h3><strong>Confirm your event details:</strong></h3>
+        
+                                <div id="locationFromActivityPanel"><strong>Destination/Event: </strong></div> 
+                                <form><textarea class = "textAreaFinalEntryModal" id ="locationFromActivityPanelInput"></textarea></form>  
+                                <div id="dayOfWeekFromActivityPanel"><strong>Day of Week: </strong></div>  
+                                <form><input class = "textAreaFinalEntryModal" id ="dayOfWeekFromActivityPanelInput" placeholder="(eg) Sunday or Wednesday"></input></form>  
+                                <div id="startTimeFromActivityPanel"><strong>Start Time: </strong></div>  
+                                <form><input class = "textAreaFinalEntryModal"id ="startTimeFromActivityPanelInput" placeholder="HH:MM:SS"></input></form>  
+                                <div id="endTimeFromActivityPanel"><strong>End Time: </strong></div> 
+                                <form><input class = "textAreaFinalEntryModal"id ="endTimeFromActivityPanelInput" placeholder="HH:MM:SS"></input></form>  
+                                <div id="commentFromActivityPanel"><strong>Comment: </strong></div> 
+                                <form><textarea class = "textAreaFinalEntryModal" id ="commentFromActivityPanelInput"></textarea></form>  
+                                
+                            </div>
+                            <button id="userFinalEventEntrySubmitButton" >Confirm</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+
+
+
 
     <div class="modal fade" id="selectTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -112,6 +169,6 @@
 </body>
 ​
 <script src="js/app.js" type="text/javascript"></script>
-​
+​<script src="js/dcmApp.js" type="text/javascript"></script>
 
 </html>

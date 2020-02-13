@@ -1,3 +1,4 @@
+
 CREATE DATABASE user_calendar_db;
 
 USE user_calendar_db;
@@ -17,8 +18,8 @@ CREATE TABLE tasks (
     user_id INTEGER NOT NULL,
     task_name VARCHAR(100) NOT NULL,
     task_day VARCHAR(50) NOT NULL,
-    task_stime TIME NOT NULL,
-    task_etime TIME NOT NULL,
+    task_stime INTEGER NOT NULL,
+    task_etime INTEGER NOT NULL,
     task_comment TEXT NOT NULL,
    PRIMARY KEY(task_id) 
  );

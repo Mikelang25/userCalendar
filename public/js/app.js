@@ -8,6 +8,7 @@ $(document).ready(function () {
     for (var i = 0; i < days.length; i++) {
       let j = 5
 
+<<<<<<< HEAD
       do {
         for (var l = 0; l <= tasks.length - 1; l++) {
           console.log(l + 'l')
@@ -22,6 +23,46 @@ $(document).ready(function () {
             } else {
               startTime = parseInt(tasks[l].task_stime) + ':00 am - '
             }
+=======
+    $.get("/api/tasks", function (data) {
+        var tasks = data;
+        for (var i = 0; i < days.length; i++) {
+            let j = 5;
+
+            do {
+                for (var l = 0; l <= tasks.length - 1; l++) {
+                    if (j === tasks[l].task_stime && days[i] === tasks[l].task_day) {
+
+                        var startTime;
+                        var endTime;
+                        if (parseInt(tasks[l].task_stime) > 12) {
+                            startTime = parseInt(tasks[l].task_stime) - 12 + ":00 pm - "
+                        } else if (tasks[l].task_stime === 12) {
+                            startTime = parseInt(tasks[l].task_stime) + ":00 pm - "
+                        } else {
+                            startTime = parseInt(tasks[l].task_stime) + ":00 am - "
+                        }
+
+                        if (parseInt(tasks[l].task_etime) > 12) {
+                            endTime = parseInt(tasks[l].task_etime) - 12 + ":00 pm"
+                        } else if (tasks[l].task_etime === 12) {
+                            endTime = parseInt(tasks[l].task_etime) + ":00 pm"
+                        } else {
+                            endTime = parseInt(tasks[l].task_etime) + ":00 am"
+                        }
+                        var newTask = $("<p>").text(tasks[l].task_name)
+                        var taskComment = $("<p>").text(startTime + endTime);
+                        newTask.append(taskComment);
+                        var taskLength = Math.abs(parseInt(tasks[l].task_stime) - parseInt(tasks[l].task_etime));
+                        $("#" + days[i]).append(newTask)
+                        newTask.addClass("task-" + taskLength);
+                        newTask.attr("id", l)
+                        newTask.addClass("active-task");
+                        j += taskLength
+                    }
+                }
+
+>>>>>>> a9d8d5c40895d6f40ad38f34aaca9afda3cd04d1
 
             if (parseInt(tasks[l].task_etime) > 12) {
               endTime = parseInt(tasks[l].task_etime) - 12 + ':00 pm'
@@ -44,6 +85,7 @@ $(document).ready(function () {
           }
         }
 
+<<<<<<< HEAD
         var newHour
         if (j < 12) {
           newHour = $('<p>').text(j + ':00 am').addClass('single-hour')
@@ -59,6 +101,11 @@ $(document).ready(function () {
       while (j < 24)
     }
   })
+=======
+    $(document).on('click','.active-task',function (event) {
+        console.log("this works")
+        var selectTask = $(this).attr("id")
+>>>>>>> a9d8d5c40895d6f40ad38f34aaca9afda3cd04d1
 
   $('.active-task').on('click', function (event) {
     console.log('this works')

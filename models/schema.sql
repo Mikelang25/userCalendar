@@ -24,8 +24,8 @@ CREATE TABLE tasks (
    PRIMARY KEY(task_id) 
  );
 
-INSERT INTO tasks (user_id,task_name,task_day,task_stime,task_etime,task_comment)
-VALUES (2,"bowling","monday","13:00:00","16:00:00","going bowling with the kids");
+INSERT INTO tasks (user_id,task_name,task_day,task_stime,task_etime,task_comment,createdAt,updatedAt)
+VALUES (2,"bowling","monday","13","16","going bowling with the kids",curdate(),curdate());
 
-INSERT INTO tasks (user_id,task_name,task_day,task_stime,task_etime,task_comment)
-VALUES (2,"golf","tuesday","13:00:00","16:00:00","going bowling with the kids");
+INSERT INTO tasks (user_id,task_name,task_day,task_stime,task_etime,task_comment,createdAt,updatedAt)
+VALUES (2,"golf","tuesday","13","16","going bowling with the kids",curdate(),curdate());

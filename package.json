@@ -1,7 +1,6 @@
 {
   "name": "usercalendar",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,17 +16,9 @@
     "url": "https://github.com/Mikelang25/userCalendar/issues"
   },
   "homepage": "https://github.com/Mikelang25/userCalendar#readme",
-<<<<<<< HEAD
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "prettier": "1.19.1"
   },
-  "dependencies": {
-    "standard": "^14.3.1"
-=======
-  "dependencies": {
-    "express": "^4.17.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.4"
->>>>>>> a9d8d5c40895d6f40ad38f34aaca9afda3cd04d1
-  }
+  "dependencies": {},
+  "description": ""
 }

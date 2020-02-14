@@ -21,7 +21,7 @@ $.each(timeOfDayArray, function () {
       .text(this))
 })
 
-function parkVisit () {
+function parkVisit() {
   console.log('user activity/city/state submitted')
   $('.userViewActivityPanelHeader').html('Choose the Park you want to visit by clicking on the panel:')
 
@@ -36,12 +36,13 @@ function parkVisit () {
     method: 'GET'
 
   }).then(function (response) {
+    var k = 0;
     for (k = 0; k < response.data.length; k++) {
       $('.userViewActivityPanel')
         .append($('<div>')
           .attr('class', 'destinationDiv')
-        // .attr("data-toggle", "modal")
-        // .attr("data-target", "#modalForUserFinalEntry")
+          // .attr("data-toggle", "modal")
+          // .attr("data-target", "#modalForUserFinalEntry")
           .prop('activityCategory', userChoice)
           .prop('name', response.data[k].fullName)
           .attr('id', k)
@@ -53,7 +54,7 @@ function parkVisit () {
     destinationDivClick()
   })
 }
-function concertVisit () {
+function concertVisit() {
   console.log('user activity/city/state submitted')
   $('.userViewActivityPanelHeader').html('Choose the Concert you want to go to by clicking on the panel:')
 
@@ -68,7 +69,7 @@ function concertVisit () {
     method: 'GET'
 
   }).then(function (response) {
-    var k = 0
+    var k = 0;
     for (k = 0; k < response._embedded.events.length; k++) {
       // convert date to day of week
       var dateArray = response._embedded.events[k].dates.start.localDate.split('-')
@@ -88,8 +89,8 @@ function concertVisit () {
       $('.userViewActivityPanel')
         .append($('<div>')
           .attr('class', 'destinationDiv')
-        // .attr("data-toggle", "modal")
-        // .attr("data-target", "#modalForUserFinalEntry")
+          // .attr("data-toggle", "modal")
+          // .attr("data-target", "#modalForUserFinalEntry")
           .prop('activityCategory', userChoice)
           .prop('name', response._embedded.events[k].name)
           .attr('date', response._embedded.events[k].dates.start.localDate)
@@ -108,7 +109,7 @@ function concertVisit () {
   })
 }
 
-function sportingEventVisit () {
+function sportingEventVisit() {
   console.log('user activity/city/state submitted')
   $('.userViewActivityPanelHeader').html('Choose the Sporting Event you want to go to by clicking on the panel:')
 
@@ -123,6 +124,7 @@ function sportingEventVisit () {
     method: 'GET'
 
   }).then(function (response) {
+    var k = 0;
     for (k = 0; k < response._embedded.events.length; k++) {
       // convert date to day of week
       var dateArray = response._embedded.events[k].dates.start.localDate.split('-')
@@ -131,7 +133,7 @@ function sportingEventVisit () {
       var eventDayOfWeek = (dayOfWeekArray[date.getDay()])
       console.log(eventDayOfWeek)
       // convert end time to 2 hours after start time
-      convertStartTime = []
+      var convertStartTime = []
       if (response._embedded.events[k].dates.start.localTime) {
         var startTime = response._embedded.events[k].dates.start.localTime
         convertStartTime = startTime.split(':')
@@ -143,8 +145,8 @@ function sportingEventVisit () {
       $('.userViewActivityPanel')
         .append($('<div>')
           .attr('class', 'destinationDiv')
-        // .attr("data-toggle", "modal")
-        // .attr("data-target", "#modalForUserFinalEntry")
+          // .attr("data-toggle", "modal")
+          // .attr("data-target", "#modalForUserFinalEntry")
           .prop('activityCategory', userChoice)
           .prop('name', response._embedded.events[k].name)
           .attr('date', response._embedded.events[k].dates.start.localDate)
@@ -163,7 +165,7 @@ function sportingEventVisit () {
   })
 }
 
-function restaurantVisit () {
+function restaurantVisit() {
   console.log('user activity/city/state submitted')
   $('.userViewActivityPanelHeader').html('Choose the Restaurant you want to go to by clicking on the panel:')
 
@@ -195,12 +197,13 @@ function restaurantVisit () {
       headers: { Accept: 'application/json', 'user-key': 'e1b108df2ae90b2dfeadd7f9e23a7b52' }
     }).then(function (response) {
       console.log(response.restaurants)
+      var k = 0;
       for (k = 0; k < response.restaurants.length; k++) {
         $('.userViewActivityPanel')
           .append($('<div>')
             .attr('class', 'destinationDiv')
-          // .attr("data-toggle", "modal")
-          // .attr("data-target", "#modalForUserFinalEntry")
+            // .attr("data-toggle", "modal")
+            // .attr("data-target", "#modalForUserFinalEntry")
             .prop('activityCategory', userChoice)
             .prop('name', response.restaurants[k].restaurant.name)
             .attr('id', k)
@@ -218,7 +221,7 @@ function restaurantVisit () {
   })
 }
 
-function userGeneratedEvent () {
+function userGeneratedEvent() {
   console.log('user activity/city/state submitted')
 
   var userChoice = $('#userActivityChoice').val()
@@ -235,7 +238,7 @@ function userGeneratedEvent () {
   userFinalEventEntrySubmitButton()
 }
 
-$('#userSubmitInitialActivityButton').on('click', function (userEnterActivityCityState) {
+$('#userSubmitInitialActivityButton').on('click', function () {
   event.preventDefault()
 
   var userChoice = $('#userActivityChoice').val()
@@ -261,13 +264,13 @@ $('#userSubmitInitialActivityButton').on('click', function (userEnterActivityCit
 
     case 'userGeneratedEvent':
       userGeneratedEvent()
-
+      break
     default:
       break
   }
 })
 
-function destinationDivClick () {
+function destinationDivClick() {
   $('.destinationDiv').on('click', function () {
     console.log('destination div clicked')
 
@@ -291,7 +294,7 @@ function destinationDivClick () {
     userFinalEventEntrySubmitButton()
   })
 }
-function userFinalEventEntrySubmitButton () {
+function userFinalEventEntrySubmitButton() {
   $('#userFinalEventEntrySubmitButton').on('click', function (event) {
     event.preventDefault()
     var convertingStartTimeToInteger = $('#startTimeFromActivityPanelInput').val()

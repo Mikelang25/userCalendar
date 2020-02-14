@@ -1,44 +1,44 @@
 module.exports = function (sequelize, DataTypes) {
-  var Task = sequelize.define('Task', {
+  var User = sequelize.define('User', {
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    task_name: {
+    user_fname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    task_day: {
+    user_lname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    task_stime: {
-      type: DataTypes.INTEGER,
+    user_email: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    task_etime: {
-      type: DataTypes.INTEGER,
+    user_pw: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    task_comment: {
-      type: DataTypes.TEXT,
+    user_un: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     }
   })
-  return Task
+  return User
 }

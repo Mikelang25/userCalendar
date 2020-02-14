@@ -4,18 +4,14 @@ var days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "s
 $(document).ready(function () {
 
     $.get("/api/tasks", function (data) {
-        console.log(data)
         var tasks = data;
-        console.log('testing:', tasks[1]);
         for (var i = 0; i < days.length; i++) {
             let j = 5;
 
             do {
-                for (var l = 0; l <= tasks.length-1; l++) {
-                    console.log(l+ "l");
-                    console.log(j+ "j");
+                for (var l = 0; l <= tasks.length - 1; l++) {
                     if (j === tasks[l].task_stime && days[i] === tasks[l].task_day) {
-                       
+
                         var startTime;
                         var endTime;
                         if (parseInt(tasks[l].task_stime) > 12) {
@@ -33,8 +29,6 @@ $(document).ready(function () {
                         } else {
                             endTime = parseInt(tasks[l].task_etime) + ":00 am"
                         }
-
-                        console.log("this works");
                         var newTask = $("<p>").text(tasks[l].task_name)
                         var taskComment = $("<p>").text(startTime + endTime);
                         newTask.append(taskComment);
@@ -65,7 +59,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".active-task").on("click", function (event) {
+    $(document).on('click','.active-task',function (event) {
         console.log("this works")
         var selectTask = $(this).attr("id")
 

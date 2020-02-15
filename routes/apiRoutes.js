@@ -26,4 +26,17 @@ module.exports = function (app) {
       res.json(dbExample)
     })
   })
+
+  app.put('/api/tasks/:id', function (req, res) {
+    db.Task.update(
+      {task_comment: req.body.task_comment,
+       task_name: req.body.task_name,
+       task_day: req.body.task_day
+      },
+      { 
+        where: { id: req.params.id } 
+      }).then(function (dbExample) {
+      res.json(dbExample)
+    })
+  })
 }

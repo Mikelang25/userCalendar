@@ -108,6 +108,10 @@
   #taskDay{
     width:50%;
   }
+
+  #taskID{
+    width:0%;
+  }
   
   #taskName{
     width:80%;

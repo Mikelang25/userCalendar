@@ -14,9 +14,10 @@ module.exports = function (app) {
       res.json(dbExample)
     })
   })
+  //post a new user
   app.post('/api/users', function (req, res) {
-    db.Task.create(req.body).then(function (dbExample) {
-      res.json(dbExample)
+    db.User.create(req.body).then(function (userExample) {
+      res.json(userExample)
     })
   })
 

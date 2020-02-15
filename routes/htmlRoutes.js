@@ -8,5 +8,9 @@ module.exports = function (app) {
   // index route loads view.html
   app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../views/index.html'))
-  })
+  });
+
+  app.get('/calendar', function (req, res) {
+    res.sendFile(path.join(__dirname, '../views/calendar.html'))
+  });
 }

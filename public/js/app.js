@@ -36,12 +36,12 @@ $(document).ready(function () {
             var taskLength = Math.abs(parseInt(tasks[l].task_stime) - parseInt(tasks[l].task_etime));
             $("#" + days[i]).append(newTask)
             newTask.addClass("task-" + taskLength);
-            newTask.attr("id", l)
-            newTask.attr("task_name",tasks[l].task_name)
-            newTask.attr("task_stime",tasks[l].task_stime)
-            newTask.attr("task_etime",tasks[l].task_etime)
-            newTask.attr("task_day",tasks[l].task_day)
-            newTask.attr("task_comment",tasks[l].task_comment)
+            newTask.attr("id", tasks[l].id)
+            newTask.attr("task_name", tasks[l].task_name)
+            newTask.attr("task_stime", tasks[l].task_stime)
+            newTask.attr("task_etime", tasks[l].task_etime)
+            newTask.attr("task_day", tasks[l].task_day)
+            newTask.attr("task_comment", tasks[l].task_comment)
             newTask.addClass("active-task");
             j += taskLength
           }
@@ -63,15 +63,45 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on("click", ".active-task", function(){
+  $(document).on("click", ".active-task", function () {
     console.log('this works')
     var selectTask = $(this).attr('id')
 
     $('#taskDay').val($(this).attr('task_day'))
     $('#taskName').val($(this).attr('task_name'))
     $('#taskDesc').val($(this).attr('task_comment'))
-
+    $('#taskID').val($(this).attr('id'))
     $('#selectTaskModal').modal('toggle')
   });
+
+
+  $(document).on("click", "#update-task", function () {
+
+    var taskDay = $('#taskDay').val();
+    var taskName = $('#taskName').val();
+    var taskDescr = $('#taskDesc').val();
+    var taskID =  $('#taskID').val();
+
+    var updatedTask = {
+      task_day: taskDay,
+      task_name: taskName,
+      task_comment: taskDescr,
+      id: taskID
+    };
+
+
+    $.ajax("/api/tasks/" + taskID, {
+      type: "PUT",
+      data: updatedTask
+    }).then(
+      function () {
+        console.log("Your task has been updated");
+        location.reload();
+      }
+    );
+  });
+
+
+
 
 });

@@ -37,6 +37,11 @@ $(document).ready(function () {
             $("#" + days[i]).append(newTask)
             newTask.addClass("task-" + taskLength);
             newTask.attr("id", l)
+            newTask.attr("task_name",tasks[l].task_name)
+            newTask.attr("task_stime",tasks[l].task_stime)
+            newTask.attr("task_etime",tasks[l].task_etime)
+            newTask.attr("task_day",tasks[l].task_day)
+            newTask.attr("task_comment",tasks[l].task_comment)
             newTask.addClass("active-task");
             j += taskLength
           }
@@ -58,13 +63,13 @@ $(document).ready(function () {
     }
   });
 
-  $('.active-task').on('click', function (event) {
+  $(document).on("click", ".active-task", function(){
     console.log('this works')
     var selectTask = $(this).attr('id')
 
-    $('#taskDay').val(tasks[selectTask].taskDay)
-    $('#taskName').val(tasks[selectTask].taskName)
-    $('#taskDesc').val(tasks[selectTask].comment)
+    $('#taskDay').val($(this).attr('task_day'))
+    $('#taskName').val($(this).attr('task_name'))
+    $('#taskDesc').val($(this).attr('task_comment'))
 
     $('#selectTaskModal').modal('toggle')
   });

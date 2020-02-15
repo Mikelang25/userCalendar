@@ -1,180 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-​
-
-<head>
+​<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyCalendar</title>
-    ​
-
-    <script src="https://code.jquery.com/jquery.js"></script>
+    ​<script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script> ​
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>   
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/openingStyleCss.css">
     ​
 </head>
 ​
 
 <body>
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-9 text-left main-header">MY CALENDAR</div>
-        <div class="col-md-2"></div>
-    </div>
-    <div class="row">
-
-        <div id="hour-container" class="col-md-1"></div>
-        <div class="col-md-9 text-center" class="container-fluid">
-            <div class="row">
-                <div class="lbl-day">Sunday</div>
-                <div class="lbl-day">Monday</div>
-                <div class="lbl-day">Tuesday</div>
-                <div class="lbl-day">Wednesday</div>
-                <div class="lbl-day">Thursday</div>
-                <div class="lbl-day">Friday</div>
-                <div class="lbl-day">Saturday</div>
-            </div>
-            <div class="row">
-                <div id="sunday" class="day">
-                    ​
-                </div>
-                <div id="monday" class="day">
-                    ​
-                </div>
-                <div id="tuesday" class="day">
-                    ​
-                </div>
-                <div id="wednesday" class="day">
-                    ​
-                </div>
-                <div id="thursday" class="day">
-                    ​
-                </div>
-                <div id="friday" class="day">
-                    ​
-                </div>
-                <div id="saturday" class="day">
-                    ​
-                </div>
-            </div>
-        </div>
-
-        <!--DCM added what do you want to do panel-->
-        <div class="col-md-2">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <div class="activityForm">
-                        <div class="form-group">
-                            <h3>What do you want to do:</h3>
-                            <select class="form-control" id="userActivityChoice">
-                                <option value=""></option>
-                                <option value="goForAHike">Go for a Hike</option>
-                                <option value="goToConcert">Go to Concert</option>
-                                <option value="goToSportingEvent">Go to a Sporting Event</option>
-                                <option value="goOutToEat">Go out to Eat</option>
-                                <option value="userGeneratedEvent">Add a user generated Event</option>
-                            </select>
-                        </div>
-                        <div class="locationInput">
-                            <h3>Enter the location of the activity:</h3>
-                            <input class="form-control" id="userCity" type="text" placeholder="City">
-                            <input class="form-control" id="userState" type="text"
-                                placeholder="State (2-letter abbreviation)">
-                        </div>
-                        <button id="userSubmitInitialActivityButton">Submit</button>
-                    </div>
-                    <div class=userViewActivityPanelHeader>
-                    </div>
-                    <div class="userViewActivityPanel">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="modal fade" id="selectTaskModal" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">UPCOMING EVENT</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="task-form">
-                        <div>
-                            <label>Event Day</label>
-                            <input class="form-control" id="taskDay" placeholder="Task">
-                        </div>
-                        <div>
-                            <label>Event Title</label>
-                            <input class="form-control" id="taskName" placeholder="Name">
-                        </div>
-                        <div>
-                            <label>Description</label>
-                            <textarea class="form-control" id="taskDesc" placeholder="Description"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- DCM Modal for final entry added-->
-    <div class="modal fade" id="modalForUserFinalEntry" role="dialog">
-            <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
+   
+    
+        <!--DCM added opening  modal-->
+        <div class="modal fade" id="modalForUserLogin" role="dialog">
+            <div class="modal-dialog" id = "modalForUserLoginDialog">
+                <!-- Modal content-->
+                <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <div class="modal-body">
                             <div class="form-group">
-                                <h3><strong>Confirm your event details:</strong></h3>
+                                <h3><strong>Welcome to MyCalendar!</strong></h3>
         
-                                <div id="locationFromActivityPanel"><strong>Destination/Event: </strong></div> 
-                                <form><textarea class = "textAreaFinalEntryModal" id ="locationFromActivityPanelInput"></textarea></form>  
-                                <div id="dayOfWeekFromActivityPanel"><strong>Day of Week: </strong></div>  
-                                <form><input class = "textAreaFinalEntryModal" id ="dayOfWeekFromActivityPanelInput" placeholder="(eg) Sunday or Wednesday"></input></form>  
-                                <div id="startTimeFromActivityPanel"><strong>Start Time: </strong></div>  
-                                <form><input class = "textAreaFinalEntryModal"id ="startTimeFromActivityPanelInput" placeholder="HH:MM:SS"></input></form>  
-                                <div id="endTimeFromActivityPanel"><strong>End Time: </strong></div> 
-                                <form><input class = "textAreaFinalEntryModal"id ="endTimeFromActivityPanelInput" placeholder="HH:MM:SS"></input></form>  
-                                <div id="commentFromActivityPanel"><strong>Comment: </strong></div> 
-                                <form><textarea class = "textAreaFinalEntryModal" id ="commentFromActivityPanelInput"></textarea></form>  
+                                <form>
+                                    <div class="form-group">
+                                      <label for="inputEmail1">Email address</label>
+                                      <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                     
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputPassword1">Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                               
+                                    <button type="submit" class="btn btn-primary" id="userSubmitButton1">Submit</button>
+                                  </form>
+                                  <div id="newUserEntryInput1">
+                                      <br>
                                 
+<div id="newUserSubmitButtonTitle">
+    To add a MyCalendar account:
+</div>
+                                      <button type="submit" class="btn btn-primary" id = "newUserSubmitButtonForNewUserModal">New Users</button>
+                                  </div>
                             </div>
-                            <button id="userFinalEventEntrySubmitButton" >Confirm</button>
+         
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+<!--DCM Adding new user submit modal-->
+        <div class="modal fade" id="modalForNewUserEntry" role="dialog">
+            <div class="modal-dialog">
+               
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <h5><strong>Register for MyCalendar!</strong></h5>
+        
+                                <form>
 
+                                    <div class="form-group">
+                                        <label for="newUserFirstNameEntry">First Name</label>
+                                        <input type="text" class="form-control" id="newUserFirstNameEntry">
+                                      </div>
 
+                                      <div class="form-group">
+                                        <label for="newUserLastNameEntry">First Name</label>
+                                        <input type="text" class="form-control" id="newUserLastNameEntry">
+                                      </div>
 
+                                    <div class="form-group">
+                                      <label for="newUserEmailEntry">Email address</label>
+                                      <input type="email" class="form-control" id="newUserEmailEntry" aria-describedby="emailHelp" placeholder="Enter email">
+                      
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="newUserPasswordEntry">Password</label>
+                                      <input type="password" class="form-control" id="newUserPasswordEntry" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newUserUserNameEntry">User Name</label>
+                                        <input type="text" class="form-control" id="newUserUserNameEntry">
+                                      </div>
 
+                                    <button type="submit" class="btn btn-primary" id="newUserSubmitButtonEntry">Submit</button>
+                                  </form>
+                          
+                            </div>
+         
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
 
-
-
-    ​
 </body>
 ​
-
-​
-<script src="js/dcmApp.js" type="text/javascript"></script>
-<script src="js/app.js" type="text/javascript"></script>
+<script src="js/openingjs.js" type="text/javascript"></script>
 
 </html>

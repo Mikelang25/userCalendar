@@ -4,7 +4,7 @@ module.exports = function (app) {
   // Get all examples
   app.get('/api/tasks/:id', function (req, res) {
     db.Task.findAll({
-      where: { id: req.params.id }
+      where: { user_id: req.params.id }
     }).then(function (dbTasks) {
       console.log(dbTasks)
       res.json(dbTasks)

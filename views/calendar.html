@@ -14,7 +14,7 @@
         crossorigin="anonymous"></script> ​
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <a href="https://icons8.com/icon/NqzTiK3aS5zz/running"></a>
     <link rel="stylesheet" href="styles/styles.css">
     ​
 </head>
@@ -22,9 +22,7 @@
 
 <body>
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-9 text-left main-header">MY CALENDAR</div>
-        <div class="col-md-2"></div>
+        <div class="col-md-12 text-left main-header"><img src="https://img.icons8.com/carbon-copy/100/000000/calendar.png">MY CALENDAR</div>
     </div>
     <div class="row">
 
@@ -65,33 +63,38 @@
         </div>
 
         <!--DCM added what do you want to do panel-->
-        <div class="col-md-2">
+        <div class="col-md-2 selectForm">
             <div class="container-fluid">
                 <div class="row">
-
-                    <div class="activityForm">
-                        <div class="form-group">
-                            <h3>What do you want to do:</h3>
-                            <select class="form-control" id="userActivityChoice">
-                                <option value=""></option>
-                                <option value="goForAHike">Go for a Hike</option>
-                                <option value="goToConcert">Go to Concert</option>
-                                <option value="goToSportingEvent">Go to a Sporting Event</option>
-                                <option value="goOutToEat">Go out to Eat</option>
-                                <option value="userGeneratedEvent">Add a user generated Event</option>
-                            </select>
+                    <div class="col-md-12">
+                        <div class="activityForm">
+                            <div class="form-group">
+                                <h3 class="lbl-act"><img
+                                        src="https://img.icons8.com/plasticine/50/000000/running.png">Select An Activity
+                                </h3>
+                                <select class="form-control" id="userActivityChoice">
+                                    <option value=""></option>
+                                    <option value="goForAHike">Go for a Hike</option>
+                                    <option value="goToConcert">Go to Concert</option>
+                                    <option value="goToSportingEvent">Go to a Sporting Event</option>
+                                    <option value="goOutToEat">Go out to Eat</option>
+                                    <option value="userGeneratedEvent">Add a user generated Event</option>
+                                </select>
+                            </div>
+                            <div class="locationInput">
+                                <h3 class="lbl-act"><img
+                                        src="https://img.icons8.com/plasticine/50/000000/worldwide-location.png">Enter
+                                    your location</h3>
+                                <input class="form-control" id="userCity" type="text" placeholder="City">
+                                <input class="form-control" id="userState" type="text"
+                                    placeholder="State (2-letter abbreviation)">
+                            </div>
+                            <button id="userSubmitInitialActivityButton">Submit</button>
                         </div>
-                        <div class="locationInput">
-                            <h3>Enter the location of the activity:</h3>
-                            <input class="form-control" id="userCity" type="text" placeholder="City">
-                            <input class="form-control" id="userState" type="text"
-                                placeholder="State (2-letter abbreviation)">
+                        <div class=userViewActivityPanelHeader>
                         </div>
-                        <button id="userSubmitInitialActivityButton">Submit</button>
-                    </div>
-                    <div class=userViewActivityPanelHeader>
-                    </div>
-                    <div class="userViewActivityPanel">
+                        <div class="userViewActivityPanel">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,7 +103,8 @@
 
 
 
-    <div class="modal fade" id="selectTaskModal" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="selectTaskModal" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -139,33 +143,38 @@
 
     <!-- DCM Modal for final entry added-->
     <div class="modal fade" id="modalForUserFinalEntry" role="dialog">
-            <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <h3><strong>Confirm your event details:</strong></h3>
-        
-                                <div id="locationFromActivityPanel"><strong>Destination/Event: </strong></div> 
-                                <form><textarea class = "textAreaFinalEntryModal" id ="locationFromActivityPanelInput"></textarea></form>  
-                                <div id="dayOfWeekFromActivityPanel"><strong>Day of Week: </strong></div>  
-                                <form><input class = "textAreaFinalEntryModal" id ="dayOfWeekFromActivityPanelInput" placeholder="(eg) Sunday or Wednesday"></input></form>  
-                                <div id="startTimeFromActivityPanel"><strong>Start Time: </strong></div>  
-                                <form><input class = "textAreaFinalEntryModal"id ="startTimeFromActivityPanelInput" placeholder="HH:MM:SS"></input></form>  
-                                <div id="endTimeFromActivityPanel"><strong>End Time: </strong></div> 
-                                <form><input class = "textAreaFinalEntryModal"id ="endTimeFromActivityPanelInput" placeholder="HH:MM:SS"></input></form>  
-                                <div id="commentFromActivityPanel"><strong>Comment: </strong></div> 
-                                <form><textarea class = "textAreaFinalEntryModal" id ="commentFromActivityPanelInput"></textarea></form>  
-                                
-                            </div>
-                            <button id="userFinalEventEntrySubmitButton" >Confirm</button>
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h3><strong>Confirm your event details:</strong></h3>
+
+                            <div id="locationFromActivityPanel"><strong>Destination/Event: </strong></div>
+                            <form><textarea class="textAreaFinalEntryModal"
+                                    id="locationFromActivityPanelInput"></textarea></form>
+                            <div id="dayOfWeekFromActivityPanel"><strong>Day of Week: </strong></div>
+                            <form><input class="textAreaFinalEntryModal" id="dayOfWeekFromActivityPanelInput"
+                                    placeholder="(eg) Sunday or Wednesday"></input></form>
+                            <div id="startTimeFromActivityPanel"><strong>Start Time: </strong></div>
+                            <form><input class="textAreaFinalEntryModal" id="startTimeFromActivityPanelInput"
+                                    placeholder="HH:MM:SS"></input></form>
+                            <div id="endTimeFromActivityPanel"><strong>End Time: </strong></div>
+                            <form><input class="textAreaFinalEntryModal" id="endTimeFromActivityPanelInput"
+                                    placeholder="HH:MM:SS"></input></form>
+                            <div id="commentFromActivityPanel"><strong>Comment: </strong></div>
+                            <form><textarea class="textAreaFinalEntryModal"
+                                    id="commentFromActivityPanelInput"></textarea></form>
+
                         </div>
+                        <button id="userFinalEventEntrySubmitButton">Confirm</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
 

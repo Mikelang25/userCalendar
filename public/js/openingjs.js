@@ -12,7 +12,7 @@ $('#newUserSubmitButtonEntry').on('click', function (event) {
   console.log('New User Submitting data')
 
   var newUser = {
-    user_id: 8,
+  
     user_fname: $('#newUserFirstNameEntry').val(),
     user_lname: $('#newUserLastNameEntry').val(),
     user_email: $('#newUserEmailEntry').val(),
@@ -29,8 +29,11 @@ $('#newUserSubmitButtonEntry').on('click', function (event) {
     function (data) {
       console.log(data)
       console.log('Added new user')
-      // Reload the page to get the updated list
-      //   location.reload();
+   localStorage.setItem('userIdForCalendarStart',data.id);
+      
+
+      // Reload the page to the calendar.html      
+      window.location.assign("http://localhost:8080/calendar")
     }
   )
 })

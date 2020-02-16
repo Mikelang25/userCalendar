@@ -2,8 +2,11 @@ var db = require('../models')
 
 module.exports = function (app) {
   // Get all examples
-  app.get('/api/tasks', function (req, res) {
-    db.Task.findAll({}).then(function (dbTasks) {
+  app.get('/api/tasks/:id', function (req, res) {
+    db.Task.findAll({
+      where: { id: req.params.id }
+    }).then(function (dbTasks) {
+      console.log(dbTasks)
       res.json(dbTasks)
     })
   })
@@ -18,6 +21,8 @@ module.exports = function (app) {
   app.post('/api/users', function (req, res) {
     db.User.create(req.body).then(function (userExample) {
       res.json(userExample)
+      console.log(userExample)
+      
     })
   })
 

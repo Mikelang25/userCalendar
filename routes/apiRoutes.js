@@ -4,7 +4,11 @@ module.exports = function (app) {
   // Get all examples
   app.get('/api/tasks/:id', function (req, res) {
     db.Task.findAll({
-      where: { user_id: req.params.id }
+      where: { user_id: 7 },
+      order: [
+        ['task_day', 'ASC'],
+        ['task_stime', 'ASC']
+            ]
     }).then(function (dbTasks) {
       console.log(dbTasks)
       res.json(dbTasks)
@@ -26,13 +30,19 @@ module.exports = function (app) {
     })
   })
 
-  // Delete an example by id
-  app.delete('/api/examples/:id', function (req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+  // Delete a task by id
+  app.delete('/api/tasks/:id', function (req, res) {
+    db.Task.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
       res.json(dbExample)
     })
   })
 
+  app.delete('/api/tasks/deleteall/:id', function (req, res) {
+    db.Task.destroy({ where: { user_id: req.params.id } }).then(function (dbExample) {
+      res.json(dbExample)
+    })
+  })
+  
   app.put('/api/tasks/:id', function (req, res) {
     db.Task.update(
       {task_comment: req.body.task_comment,

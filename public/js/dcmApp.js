@@ -23,7 +23,7 @@ $.each(timeOfDayArray, function () {
 
 function parkVisit () {
   console.log('user activity/city/state submitted')
-  $('.userViewActivityPanelHeader').html('Choose the Park you want to visit by clicking on the panel:')
+  $('.userViewActivityPanelHeader').html('Click an event to schedule:')
 
   var userChoice = $('#userActivityChoice').val()
   var userCity = $('#userCity').val()
@@ -55,7 +55,7 @@ function parkVisit () {
 }
 function concertVisit () {
   console.log('user activity/city/state submitted')
-  $('.userViewActivityPanelHeader').html('Choose the Concert you want to go to by clicking on the panel:')
+  $('.userViewActivityPanelHeader').html('Click an event to schedule:')
 
   var userChoice = $('#userActivityChoice').val()
   var userCity = $('#userCity').val()
@@ -110,7 +110,7 @@ function concertVisit () {
 
 function sportingEventVisit () {
   console.log('user activity/city/state submitted')
-  $('.userViewActivityPanelHeader').html('Choose the Sporting Event you want to go to by clicking on the panel:')
+  $('.userViewActivityPanelHeader').html('Click an event to schedule:')
 
   var userChoice = $('#userActivityChoice').val()
   var userCity = $('#userCity').val()
@@ -165,7 +165,7 @@ function sportingEventVisit () {
 
 function restaurantVisit () {
   console.log('user activity/city/state submitted')
-  $('.userViewActivityPanelHeader').html('Choose the Restaurant you want to go to by clicking on the panel:')
+  $('.userViewActivityPanelHeader').html('Click an event to schedule:')
 
   var userChoice = $('#userActivityChoice').val()
   var userCity = $('#userCity').val()
@@ -302,7 +302,7 @@ function userFinalEventEntrySubmitButton () {
     console.log(convertingEndTimeToInteger)
 
     var newTask = {
-      user_id: 16,
+      user_id: 7,
       task_name: $('#locationFromActivityPanelInput').val(),
       task_day: $('#dayOfWeekFromActivityPanelInput').val(),
       task_stime: convertingStartTimeToInteger,

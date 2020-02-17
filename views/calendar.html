@@ -22,12 +22,14 @@
 
 <body>
     <div class="row">
-        <div class="col-md-12 text-left main-header"><img src="https://img.icons8.com/carbon-copy/100/000000/calendar.png">MY CALENDAR</div>
+        <div class="col-md-10 text-left main-header"><img src="https://img.icons8.com/carbon-copy/100/000000/calendar.png">MY CALENDAR</div>
+        <div class="col-md-2 button-main text-right">
+            <button id="delete-all" type="button" class="btn btn-primary">CLEAR WEEK</button><br>
+            <button id="sign-out" type="button" class="btn btn-primary">LOGOUT</button>
+        </div>
     </div>
     <div class="row">
-
-        <div id="hour-container" class="col-md-1"></div>
-        <div class="col-md-9 text-center" class="container-fluid">
+        <div class="col-md-10 text-center" class="container-fluid">
             <div class="row">
                 <div class="lbl-day">Sunday</div>
                 <div class="lbl-day">Monday</div>
@@ -37,7 +39,7 @@
                 <div class="lbl-day">Friday</div>
                 <div class="lbl-day">Saturday</div>
             </div>
-            <div class="row">
+            <div class="row container-days">
                 <div id="sunday" class="day">
                     ​
                 </div>
@@ -89,7 +91,7 @@
                                 <input class="form-control" id="userState" type="text"
                                     placeholder="State (2-letter abbreviation)">
                             </div>
-                            <button id="userSubmitInitialActivityButton">Submit</button>
+                            <button id="userSubmitInitialActivityButton" type="button" class="btn btn-primary">Submit</button>
                         </div>
                         <div class=userViewActivityPanelHeader>
                         </div>
@@ -101,14 +103,12 @@
         </div>
     </div>
 
-
-
     <div class="modal fade" id="selectTaskModal" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">UPCOMING EVENT</h5>
+                <div id="model-edit" class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><strong>UPCOMING EVENT</strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -116,15 +116,15 @@
                 <div class="modal-body">
                     <form id="task-form">
                         <div>
-                            <label>Event Day</label>
+                            <label><strong>Event Day</strong></label>
                             <input class="form-control" id="taskDay" placeholder="Task">
                         </div>
                         <div>
-                            <label>Event Title</label>
+                            <label><strong>Title</strong></label>
                             <input class="form-control" id="taskName" placeholder="Name">
                         </div>
                         <div>
-                            <label>Description</label>
+                            <label><strong>Description</strong></label>
                             <textarea class="form-control" id="taskDesc" placeholder="Description"></textarea>
                         </div>
                         <div>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="modal-footer">
                     <button id="delete-task" type="button" class="btn btn-primary">Delete</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="close-task" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button id="update-task" type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
@@ -146,30 +146,30 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
+                <div id="model-confirm" class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <h3><strong>Confirm your event details:</strong></h3>
+                        <div class="form-group pop-event">
+                            <h3><strong>EVENT DETAILS</strong></h3>
 
-                            <div id="locationFromActivityPanel"><strong>Destination/Event: </strong></div>
+                            <div class="lbl-confirm" id="locationFromActivityPanel"><strong>Destination/Event: </strong></div>
                             <form><textarea class="textAreaFinalEntryModal"
-                                    id="locationFromActivityPanelInput"></textarea></form>
-                            <div id="dayOfWeekFromActivityPanel"><strong>Day of Week: </strong></div>
+                                id="locationFromActivityPanelInput"></textarea></form>
+                            <div class="lbl-confirm" id="dayOfWeekFromActivityPanel"><strong>Day of Week: </strong></div>
                             <form><input class="textAreaFinalEntryModal" id="dayOfWeekFromActivityPanelInput"
                                     placeholder="(eg) Sunday or Wednesday"></input></form>
-                            <div id="startTimeFromActivityPanel"><strong>Start Time: </strong></div>
+                            <div class="lbl-confirm" id="startTimeFromActivityPanel"><strong>Start Time: </strong></div>
                             <form><input class="textAreaFinalEntryModal" id="startTimeFromActivityPanelInput"
                                     placeholder="HH:MM:SS"></input></form>
-                            <div id="endTimeFromActivityPanel"><strong>End Time: </strong></div>
+                            <div class="lbl-confirm" id="endTimeFromActivityPanel"><strong>End Time: </strong></div>
                             <form><input class="textAreaFinalEntryModal" id="endTimeFromActivityPanelInput"
                                     placeholder="HH:MM:SS"></input></form>
-                            <div id="commentFromActivityPanel"><strong>Comment: </strong></div>
+                            <div class="lbl-confirm" id="commentFromActivityPanel"><strong>Comment: </strong></div>
                             <form><textarea class="textAreaFinalEntryModal"
                                     id="commentFromActivityPanelInput"></textarea></form>
 
                         </div>
-                        <button id="userFinalEventEntrySubmitButton">Confirm</button>
+                        <button id="userFinalEventEntrySubmitButton" type="button" class="btn btn-primary">Confirm</button>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 's
 
 $(document).ready(function () {
   var userIdForCalendarStartFromLocalStorage = localStorage.getItem('userIdForCalendarStart')
+  var userIdForCalendarStartFromLocalStorage = 7;
   console.log(userIdForCalendarStartFromLocalStorage)
   $.get("/api/tasks/"+userIdForCalendarStartFromLocalStorage, function (data) {
     var tasks = data;
@@ -75,7 +76,7 @@ $(document).ready(function () {
     $('#selectTaskModal').modal('toggle')
   });
 
-
+  // update a specific task 
   $(document).on("click", "#update-task", function () {
 
     var taskDay = $('#taskDay').val();
@@ -90,7 +91,6 @@ $(document).ready(function () {
       id: taskID
     };
 
-
     $.ajax("/api/tasks/" + taskID, {
       type: "PUT",
       data: updatedTask
@@ -103,6 +103,36 @@ $(document).ready(function () {
   });
 
 
+  // delete a specific task
+  $(document).on("click", "#delete-task", function () {
 
+    var taskID =  $('#taskID').val();
+
+    $.ajax("/api/tasks/" + taskID, {
+      type: "DELETE",
+
+    }).then(
+      function () {
+        console.log("Your task has been deleted");
+        location.reload();
+      }
+    );
+  });
+
+  // delete all tasks for a specific user
+  $(document).on("click", "#delete-all", function () {
+
+    var taskID =  $('#taskID').val();
+
+    $.ajax("/api/tasks/deleteall/" + userIdForCalendarStartFromLocalStorage, {
+      type: "DELETE",
+
+    }).then(
+      function () {
+        console.log("Your calendar has been cleared");
+        location.reload();
+      }
+    );
+  });
 
 });

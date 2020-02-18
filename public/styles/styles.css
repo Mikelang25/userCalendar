@@ -1,72 +1,79 @@
-body{
-  background-image:url("../images/webb.png");
-  overflow: scroll;
+body {
+    background-image: url("../images/webb.png");
+    overflow: scroll;
 }
 
+h3 {
+    color: midnightblue;
+}
 
-.day{
+#modalContentForFinalEntry {
+    background-color: darkgray;
+}
+
+.day {
     height: 700px;
-    border:1.5pt groove black;
+    border: 1.5pt groove black;
     width: 175px;
     text-align: center;
-    overflow-y:auto;
+    overflow-y: auto;
     background-color: whitesmoke;
     margin: 0 auto;
-    margin-top:10px;
-  }
+    margin-top: 10px;
+}
 
-  .container-days{
+.container-days {
     text-align: center;
-  }
-  
-  .main-header{
-    font-size:24pt;
-    padding-top:10px;
-    padding-bottom:10px;
+}
+
+.main-header {
+    font-size: 24pt;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 3pt solid black;
     border-top: 3pt solid black;
     background-color: darkgrey;
-    margin-bottom:10px;
-    color:black;
+    margin-bottom: 10px;
+    color: black;
     text-shadow: 1px 1px whitesmoke;
-  }
+}
 
-  .button-main{
-    padding-top:10px;
-    padding-bottom:10px;
+.button-main {
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-top: 3pt solid black;
     background-color: darkgrey;
-    margin-bottom:10px;
-  }
-  
-  .lbl-day{
-    border:1pt solid black;
+    margin-bottom: 10px;
+}
+
+.lbl-day {
+    border: 1pt solid black;
     width: 175px;
     text-align: center;
-    height:35px;
+    height: 35px;
     font-weight: bold;
-    padding-top:5px;
-    padding-bottom:8px;
+    padding-top: 5px;
+    padding-bottom: 8px;
     background-color: darkgray;
-    color:whitesmoke;
+    color: whitesmoke;
     border-radius: 5px;
     text-shadow: 2px 2px 8px #3b274a;
     margin: 0 auto;
-  }
-  
-  .single-hour{
-    padding-left:3px;
-    height:20px;
+}
+
+.single-hour {
+    padding-left: 3px;
+    height: 20px;
     width: 100%;
     border-bottom: 0.5pt dashed black;
     text-align: left;
     font-size: 8pt;
-  }
-  
-  .task-3{
-    padding-top:5px;
-    margin-top:-16px;
-    height:90px;
+}
+
+.task-3 {
+    padding-top: 5px;
+    margin-top: -16px;
+    height: 90px;
     width: 100%;
     border-top: 1pt solid black;
     border-bottom: 1.5pt solid black;
@@ -75,12 +82,12 @@ body{
     font-weight: bold;
     background-color: lightgreen;
     border-radius: 5px;
-  }
-  
-  .task-4{
-    padding-top:5px;
-    margin-top:-16px;
-    height:110px;
+}
+
+.task-4 {
+    padding-top: 5px;
+    margin-top: -16px;
+    height: 110px;
     width: 100%;
     border-top: 1pt solid black;
     border-bottom: 1.5pt solid black;
@@ -89,25 +96,26 @@ body{
     font-weight: bold;
     background-color: lightgray;
     border-radius: 5px;
-  }
-  
-  .task-2{
-    padding-top:5px;
-    height:70px;
+}
+
+.task-2 {
+    padding-top: 5px;
+    height: 70px;
     width: 100%;
     border-top: 1pt solid black;
     border-bottom: 1.5pt solid black;
     text-align: center;
     font-size: 8pt;
     font-weight: bold;
-    margin-top:-16px;
+    margin-top: -16px;
     background-color: lightblue;
     border-radius: 5px;
-  }
-  .task-1{
-    padding-top:5px;
-    margin-top:-16px;
-    height:50px;
+}
+
+.task-1 {
+    padding-top: 5px;
+    margin-top: -16px;
+    height: 50px;
     width: 100%;
     border-top: 0.5pt solid black;
     border-bottom: 1.5pt solid black;
@@ -116,154 +124,168 @@ body{
     font-weight: bold;
     background-color: lightcoral;
     border-radius: 5px;
-  }
-  
-  .lbl-hour{
-    height:20px;
+}
+
+.lbl-hour {
+    height: 20px;
     text-align: right;
-  }
-  
-  .active-task{
+}
+
+.active-task {
     cursor: pointer;
-  }
+}
 
-  
-  .modal-body{
-    height:500px;
-    width:600px;
-  }
+.modal-body {
+    height: 500px;
+    width: 600px;
+}
 
-  .lbl-act{
+.lbl-act {
     font-size: 12pt;
-    margin-top:15px;
-    margin-bottom:15px;
-  }
-  .selectForm{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.selectForm {
     border-left: 3pt outset black;
     border-bottom: 3pt outset black;
     margin-top: -14px;
     background-color: darkgray;
-    width:95%;
-    padding-left:-5px;
-  }
+    width: 95%;
+    padding-left: -5px;
+}
 
-  .destinationDiv{
+.destinationDiv {
     border: 1pt solid black;
     background-color: whitesmoke;
-    width:90%;
-    padding:5px;
+    width: 90%;
+    padding: 5px;
     font-size: 10pt;
     margin-top: 5px;
-  }
+}
 
-  .selectForm{
-    overflow-y:auto;
-    height:750px;
-    padding-bottom:15px;
-    padding:5px;
-  }
+.selectForm {
+    overflow-y: auto;
+    height: 750px;
+    padding-bottom: 15px;
+    padding: 5px;
+}
 
-  .userViewActivityPanelHeader{
-    margin-top:15px;
+.userViewActivityPanelHeader {
+    margin-top: 15px;
     font-weight: bold;
-  }
+}
 
-  .pop-event{
-    margin-top:20px;
-    padding:5px;
-    width:120%;
-    margin-left:-15%;
-  }
+.pop-event {
+    margin-top: 20px;
+    padding: 5px;
+    width: 120%;
+    margin-left: -15%;
+}
 
-  .textAreaFinalEntryModal{
-    width:100%;
+.textAreaFinalEntryModal {
+    width: 100%;
     font-size: 9pt;
-  }
+}
 
-  .lbl-confirm{
-    margin-top:5px;
-    margin-bottom:5px;
-  }
+.lbl-confirm {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
-  #model-confirm{
-    height:500px;
-  }
+#model-confirm {
+    height: 500px;
+}
 
-  #userActivityChoice,#userCity,#userState{
-    width:90%;
-  }
+#userActivityChoice,
+#userCity,
+#userState {
+    width: 90%;
+}
 
-  #userFinalEventEntrySubmitButton{
-    margin-left:-10%;
-  }
+#userFinalEventEntrySubmitButton {
+    margin-left: -10%;
+}
 
-  #userSubmitInitialActivityButton,#delete-all,#sign-out,#userFinalEventEntrySubmitButton,#delete-task,#update-task,#close-task{
+#userSubmitInitialActivityButton,
+#delete-all,
+#sign-out,
+#userFinalEventEntrySubmitButton,
+#delete-task,
+#update-task,
+#close-task {
     transition: all 0.2s;
     background-color: black;
-    color:whitesmoke;
-    margin-bottom:10px;
-    width:100px;
-    font-size:8pt;
+    color: whitesmoke;
+    margin-bottom: 10px;
+    width: 100px;
+    font-size: 8pt;
     font-weight: bold;
-  }
+}
 
-  #delete-all,#sign-out{
-    margin-right:10px;
-  }
+#delete-all,
+#sign-out {
+    margin-right: 10px;
+}
 
-  #userSubmitInitialActivityButton:hover,#delete-all:hover,#sign-out:hover,#commentFromActivityPanelInput:hover,#delete-task:hover,#update-task:hover,#close-task:hover{
+#userSubmitInitialActivityButton:hover,
+#delete-all:hover,
+#sign-out:hover,
+#commentFromActivityPanelInput:hover,
+#delete-task:hover,
+#update-task:hover,
+#close-task:hover {
     background-color: whitesmoke;
     color: black;
-    font-size:8pt;
+    font-size: 8pt;
     font-weight: bold;
-  }
+}
 
-
-  #userCity{
-    margin-top:15px;
-    margin-bottom:15px;
-  }
-
-  #userState{
+#userCity {
+    margin-top: 15px;
     margin-bottom: 15px;
-  }
+}
 
-  #taskDay{
-    width:50%;
-  }
+#userState {
+    margin-bottom: 15px;
+}
 
-  #taskID{
-    width:0%;
-  }
-  
-  #taskName{
-    width:80%;
-  }
-  
-  #taskDesc{
-    width:80%;
-    height:75px;
-  }
-  
-  #hour-container{
-    margin-top:30px;
-  }
-  
-  #btn-new-task{
-    width:80%;
+#taskDay {
+    width: 50%;
+}
+
+#taskID {
+    width: 0%;
+}
+
+#taskName {
+    width: 80%;
+}
+
+#taskDesc {
+    width: 80%;
+    height: 75px;
+}
+
+#hour-container {
+    margin-top: 30px;
+}
+
+#btn-new-task {
+    width: 80%;
     border-radius: 3px;
-    border:1pt solid black;
+    border: 1pt solid black;
     background-color: midnightblue;
     color: whitesmoke;
-  }
-  
-  #upcoming-tasks{
-    height:500px;
+}
+
+#upcoming-tasks {
+    height: 500px;
     border: 2pt solid black;
-    margin-top:15px;
+    margin-top: 15px;
     border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar {
+}
+
+ ::-webkit-scrollbar {
     width: 0px;
-  }
+}

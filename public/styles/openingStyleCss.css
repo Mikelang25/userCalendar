@@ -15,6 +15,18 @@ body {
     text-shadow: 1px 1px whitesmoke;
 }
 
+h4 {
+    color: midnightblue;
+}
+
+label {
+    font-weight: bold;
+}
+
+#newUserSubmitButtonTitle {
+    font-weight: bold;
+}
+
 #loginContainer {
     margin: auto;
     width: 30%;
@@ -24,11 +36,13 @@ body {
 }
 
 .button-main {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top: 3pt solid black;
-    background-color: darkgrey;
+    transition: all 0.2s;
+    background-color: black;
+    color: whitesmoke;
     margin-bottom: 10px;
+    width: 100px;
+    font-size: 8pt;
+    font-weight: bold;
 }
 
 #modalForNewUserEntry1 {
@@ -50,15 +64,23 @@ body {
     padding: 0;
 }
 
+#incorrectEntryDiv {
+    color: midnightblue;
+    font-weight: bold;
+}
+
 .formEntry {
     margin: 0;
 }
 
 #newUserSubmitButtonEntry {
-    width: 25%;
-    background-color: midnightblue;
-    padding: 2px;
-    border: none;
+    transition: all 0.2s;
+    background-color: black;
+    color: whitesmoke;
+    margin-bottom: 10px;
+    width: 100px;
+    font-size: 8pt;
+    font-weight: bold;
 }
 
 #modalHeaderForNewUserEntry1 {
@@ -116,15 +138,21 @@ body {
 }
 
 #userSubmitButton1 {
-    width: 25%;
-    background-color: midnightblue;
-    padding: 2px;
-    border: none;
+    transition: all 0.2s;
+    background-color: black;
+    color: whitesmoke;
+    margin-bottom: 10px;
+    width: 100px;
+    font-size: 8pt;
+    font-weight: bold;
 }
 
 #newUserSubmitButtonForNewUserModal {
-    width: 25%;
-    background-color: midnightblue;
-    padding: 2px;
-    border: none;
+    transition: all 0.2s;
+    background-color: black;
+    color: whitesmoke;
+    margin-bottom: 10px;
+    width: 100px;
+    font-size: 8pt;
+    font-weight: bold;
 }

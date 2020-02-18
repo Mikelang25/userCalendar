@@ -1,109 +1,130 @@
-body{
-         background: url("../images/calendar3.jfif");background-size: 100%;
-   
-}
-/* 
-.modal-backdrop {
-    background-color: rgba(0,0,0,.0001) !important;
-} */
-#modalForUserLoginDialog {
-
-
-  
-    height: 1000px;
-    max-height: 100%;
-    
-  }
-  
-.modal-content{
-    background-color: beige;
-}
-/* #modalForNewUserEntry {
- 
-      height:1000px;
-
-  } */
-
-  /* .modal.dialog1 { /* customized styles. this way you can have N dialogs, each one with its own size styles */
-    width: 60%;
-    height: 50%;
-    left: 20%; /* ( window's width [100%] - dialog's width [60%] ) / 2 */
-} */
-
-#modalForNewUserEntry{
-    font-size: 50%;
+body {
+    background-image: url("../images/webb.png");
+    overflow: scroll;
 }
 
+.main-header {
+    font-size: 24pt;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3pt solid black;
+    border-top: 3pt solid black;
+    background-color: darkgrey;
+    margin-bottom: 10px;
+    color: black;
+    text-shadow: 1px 1px whitesmoke;
+}
 
+#loginContainer {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    border: 3pt solid black;
+    background-color: darkgray;
+}
 
-  /*DCM styles
-  
-  h3{
-      font-size: 20px;
-      font-weight: bold;
-  }
-  
-  
-  /* #eventSpace{
-      border:solid;
-      border-width: ;
-  } */
-  .activityForm{
-    padding: 5px;
-        border:solid;
-        border-width: 5px;
-        border-color: black;
-    }
-    .userViewActivityPanel{
-        border: solid, 5px;
-    }
-    
-    #userSubmitInitialActivityButton{
-        display: block;
-        margin: 0 auto;
-        margin-top: 5px;
-    }
-    .destinationDiv{
-        font-weight: bold;
-        color: blue;
-        width: 100%;
-        padding: 5px;
-        border:solid;
-        border-width: 5px;
-        border-color: black;
-        margin-bottom: 5px;
-    
-    }
-    
-    .userViewActivityPanelHeader{
-        font-size: 20px;
-        font-weight: bold;
-    }
-    
-    .destinationButton{
-        font-size: 25px;
-        background-color: white;
-        color:blue;
-        text-align: center;
-        
-    }
-    #destinationTitle{
-    
-        font-size: 30px;
-        font-weight: bolder;
-    }
-    .finalUserEntry{
-       
-        font-size: 30px;
-        font-weight: bolder; 
-    }
-    .destinationChoice{
-        display: block;
-    }
-    
-    .textAreaFinalEntryModal{
-        width:100%;
-    
-    }
-  
-  
+.button-main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 3pt solid black;
+    background-color: darkgrey;
+    margin-bottom: 10px;
+}
+
+#modalForNewUserEntry1 {
+    height: 575px;
+    border: 3pt solid black;
+    margin: 0;
+}
+
+#modalHeaderForNewUserEntry1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#modalBodyForNewUserEntry1 {
+    width: auto;
+    height: auto;
+    margin-right: 20px;
+    padding: 0;
+}
+
+.formEntry {
+    margin: 0;
+}
+
+#newUserSubmitButtonEntry {
+    width: 25%;
+    background-color: midnightblue;
+    padding: 2px;
+    border: none;
+}
+
+#modalHeaderForNewUserEntry1 {
+    color: black;
+}
+
+#button {
+    padding: .5em 1em;
+    text-decoration: none;
+}
+
+#modalContentForIncorrectEntry {
+    font-size: 30px;
+    font-weight: bolder;
+    color: midnightblue;
+}
+
+.modal-title {
+    color: midnightblue;
+}
+
+#buttonToCloseIncorrectEntryModal {
+    text-align: right;
+    margin-right: 10px;
+}
+
+#effect {
+    width: 240px;
+    height: 135px;
+    padding: 0.4em;
+    position: relative;
+}
+
+#effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+}
+
+.modal-body {
+    height: 500px;
+    width: 600px;
+}
+
+.modal-content {
+    background-color: darkgrey;
+    color: whitesmoke;
+}
+
+#calendarIconImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#userSubmitButton1 {
+    width: 25%;
+    background-color: midnightblue;
+    padding: 2px;
+    border: none;
+}
+
+#newUserSubmitButtonForNewUserModal {
+    width: 25%;
+    background-color: midnightblue;
+    padding: 2px;
+    border: none;
+}

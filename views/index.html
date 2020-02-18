@@ -6,13 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY CALENDAR - login</title>
-    ​
     <script src="https://code.jquery.com/jquery.js"></script>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
-
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,84 +22,54 @@
     <div class="row">
         <div class="col-md-12 text-left main-header"><img src="https://img.icons8.com/carbon-copy/100/000000/calendar.png">MY CALENDAR</div>
     </div>
-
-
-
     <div class="container-fluid" id="loginContainer">
-
-
-
-        <h4>Current users login:</h4>
-
+        <h4><strong>Current users login:</strong></h4>
         <div class="userLoginEntryForm">
             <div class="form-group">
                 <label for="inputEmail1">Email address</label>
                 <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-
             </div>
             <div class="form-group">
                 <label for="inputPassword1">Password</label>
                 <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
             </div>
-
             <button type="submit" class="btn btn-primary" id="userSubmitButton1">Submit</button>
-            </form>
+            <div id="incorrectEntryDiv">
+            </div>
             <div id="newUserEntryInput1">
                 <br>
-
                 <div id="newUserSubmitButtonTitle">
                     To add a MY CALENDAR account:
                 </div>
-
                 <button type="submit" class="btn btn-primary" id="newUserSubmitButtonForNewUserModal">New Users</button>
                 <br>
-                <br>
-            </div>
-        </div>
-
-    </div>
-    <!-- Small modal -->
-
-    <div class="modal fade bd-example-modal-md" id="smallModalForIncorrectEntry" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content" class="container-fluid" id="modalContentForIncorrectEntryModal">
-
-                <h4 class="modal-title" id="titleForIncorrectEntryModal"></h4>
-
-                <button type="button" id="buttonToCloseIncorrectEntryModal" class="close" data-dismiss="modal">&times;</button>
             </div>
         </div>
     </div>
     <!--Adding new user submit modal-->
     <div class="modal fade" id="modalForNewUserEntry" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content" class="container-fluid" id="modalForNewUserEntry1">
                 <div class="modal-header" id="modalHeaderForNewUserEntry1">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-
                     <div class="modal-body" id="modalBodyForNewUserEntry1">
                         <div class="form-group">
                             <br>
                             <h4><strong>Register for MY CALENDAR!</strong></h4>
                         </div>
                         <form class="formEntry">
-
                             <div class="form-group">
                                 <label for="newUserFirstNameEntry">First Name</label>
                                 <input type="text" class="form-control" id="newUserFirstNameEntry">
                             </div>
-
                             <div class="form-group">
                                 <label for="newUserLastNameEntry">Last Name</label>
                                 <input type="text" class="form-control" id="newUserLastNameEntry">
                             </div>
-
                             <div class="form-group">
                                 <label for="newUserEmailEntry">Email address</label>
                                 <input type="email" class="form-control" id="newUserEmailEntry" aria-describedby="emailHelp" placeholder="Enter email">
-
                             </div>
                             <div class="form-group">
                                 <label for="newUserPasswordEntry">Password</label>
@@ -112,17 +79,13 @@
                                 <label for="newUserUserNameEntry">User Name</label>
                                 <input type="text" class="form-control" id="newUserUserNameEntry">
                             </div>
-
                             <button type="submit" class="btn btn-primary" id="newUserSubmitButtonEntry">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </body>
 ​
 <script src="js/openingjs.js" type="text/javascript"></script>

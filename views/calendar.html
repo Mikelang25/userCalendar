@@ -9,14 +9,10 @@
     ​
 
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script> ​
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> ​
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <a href="https://icons8.com/icon/NqzTiK3aS5zz/running"></a>
-    <link rel="stylesheet" href="styles/styles.css">
-    ​
+    <link rel="stylesheet" href="styles/styles.css"> ​
 </head>
 ​
 
@@ -71,8 +67,7 @@
                     <div class="col-md-12">
                         <div class="activityForm">
                             <div class="form-group">
-                                <h3 class="lbl-act"><img
-                                        src="https://img.icons8.com/plasticine/50/000000/running.png">Select An Activity
+                                <h3 class="lbl-act"><img src="https://img.icons8.com/plasticine/50/000000/running.png">Select An Activity
                                 </h3>
                                 <select class="form-control" id="userActivityChoice">
                                     <option value=""></option>
@@ -84,12 +79,9 @@
                                 </select>
                             </div>
                             <div class="locationInput">
-                                <h3 class="lbl-act"><img
-                                        src="https://img.icons8.com/plasticine/50/000000/worldwide-location.png">Enter
-                                    your location</h3>
+                                <h3 class="lbl-act"><img src="https://img.icons8.com/plasticine/50/000000/worldwide-location.png">Enter your location</h3>
                                 <input class="form-control" id="userCity" type="text" placeholder="City">
-                                <input class="form-control" id="userState" type="text"
-                                    placeholder="State (2-letter abbreviation)">
+                                <input class="form-control" id="userState" type="text" placeholder="State (2-letter abbreviation)">
                             </div>
                             <button id="userSubmitInitialActivityButton" type="button" class="btn btn-primary">Submit</button>
                         </div>
@@ -103,8 +95,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="selectTaskModal" role="dialog" aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true">
+    <div class="modal fade" id="selectTaskModal" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div id="model-edit" class="modal-header">
@@ -145,7 +136,7 @@
     <div class="modal fade" id="modalForUserFinalEntry" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content" id="modalContentForFinalEntry">
                 <div id="model-confirm" class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <div class="modal-body">
@@ -153,20 +144,18 @@
                             <h3><strong>EVENT DETAILS</strong></h3>
 
                             <div class="lbl-confirm" id="locationFromActivityPanel"><strong>Destination/Event: </strong></div>
-                            <form><textarea class="textAreaFinalEntryModal"
-                                id="locationFromActivityPanelInput"></textarea></form>
+                            <form><textarea class="textAreaFinalEntryModal" id="locationFromActivityPanelInput"></textarea></form>
                             <div class="lbl-confirm" id="dayOfWeekFromActivityPanel"><strong>Day of Week: </strong></div>
-                            <form><input class="textAreaFinalEntryModal" id="dayOfWeekFromActivityPanelInput"
-                                    placeholder="(eg) Sunday or Wednesday"></input></form>
+                            <form><input class="textAreaFinalEntryModal" id="dayOfWeekFromActivityPanelInput" placeholder="(eg) sunday or wednesday"></input>
+                            </form>
                             <div class="lbl-confirm" id="startTimeFromActivityPanel"><strong>Start Time: </strong></div>
-                            <form><input class="textAreaFinalEntryModal" id="startTimeFromActivityPanelInput"
-                                    placeholder="HH:MM:SS"></input></form>
+                            <form><input class="textAreaFinalEntryModal" id="startTimeFromActivityPanelInput" placeholder="HH:MM"></input>
+                            </form>
                             <div class="lbl-confirm" id="endTimeFromActivityPanel"><strong>End Time: </strong></div>
-                            <form><input class="textAreaFinalEntryModal" id="endTimeFromActivityPanelInput"
-                                    placeholder="HH:MM:SS"></input></form>
+                            <form><input class="textAreaFinalEntryModal" id="endTimeFromActivityPanelInput" placeholder="HH:MM"></input>
+                            </form>
                             <div class="lbl-confirm" id="commentFromActivityPanel"><strong>Comment: </strong></div>
-                            <form><textarea class="textAreaFinalEntryModal"
-                                    id="commentFromActivityPanelInput"></textarea></form>
+                            <form><textarea class="textAreaFinalEntryModal" id="commentFromActivityPanelInput"></textarea></form>
 
                         </div>
                         <button id="userFinalEventEntrySubmitButton" type="button" class="btn btn-primary">Confirm</button>
@@ -175,18 +164,9 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
     ​
 </body>
-​
-
-​
+​​
 <script src="js/dcmApp.js" type="text/javascript"></script>
 <script src="js/app.js" type="text/javascript"></script>
 

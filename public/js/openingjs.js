@@ -3,49 +3,34 @@ $('#userSubmitButton1').on('click', function(event) {
 
     var returningUserEmailEntered = $("#inputEmail1").val();
     returningUserEmailEntered = returningUserEmailEntered.toLowerCase();
-    console.log(returningUserEmailEntered)
     var returningUserPasswordEntered = $("#inputPassword1").val();
 
+    var k = 0;
     // Send the GET request.
     $.ajax('/api/users', {
         type: 'GET'
 
     }).then(
         function(data) {
-            var counterForTotalNumberOfUsers = 0
-            counterForTotalNumberOfUsers = data.length;
-            console.log(counterForTotalNumberOfUsers)
             for (k = 0; k < data.length; k++) {
-                console.log(data[k].user_email)
-                if (counterForTotalNumberOfUsers < 1) {
-                    $('#smallModalForIncorrectEntry').modal('show')
-                    $("#titleForIncorrectEntryModal").append("THERE IS NO ACCOUNT ASSOCIATED WITH THE EMAIL ENTERED - PLEASE LOG-IN AGAIN.")
-                    $('#buttonToCloseIncorrectEntryModal').on('click', function(event) {
-                        location.reload()
-                    })
-                } else {
-                    if (data[k].user_email === returningUserEmailEntered) {
-                        console.log("the email entered matches: " + data[k].user_email)
-                        userPasswordInDataBase = data[k].user_pw
+                if (returningUserEmailEntered == data[k].user_email) {
+                    $("#incorrectEntryDiv").text("The email matches.")
 
-                        if (userPasswordInDataBase === returningUserPasswordEntered) {
-
-                            console.log("email and password correct")
-
-                            localStorage.setItem('userIdForCalendarStart', data[k].id);
-                            window.location.href = "/calendar"
-                            break;
-                        } else {
-                            $('#smallModalForIncorrectEntry').modal('show')
-                            $("#titleForIncorrectEntryModal").append("THE PASSWORD ENTERED DOESN'T MATCH THE EMAIL ENTERED - PLEASE LOG-IN AGAIN.")
-                            $('#buttonToCloseIncorrectEntryModal').on('click', function(event) {
-                                location.reload()
-                            })
-                        }
+                    if (returningUserPasswordEntered == data[k].user_pw) {
+                        $("#incorrectEntryDiv").text("The email and password match.")
+                        localStorage.setItem('userIdForCalendarStart', data[k].id);
+                        window.location.href = "/calendar"
+                        break;
                     } else {
-                        counterForTotalNumberOfUsers--
-                        console.log(counterForTotalNumberOfUsers)
+                        $("#incorrectEntryDiv").text("The password entered doesn't match the email entered - Please log-in again.")
+                        $("#inputEmail1").val('')
+                        $("#inputPassword1").val('')
+                        break;
                     }
+                } else {
+                    $("#incorrectEntryDiv").text("There is no account associated with the email entered - Please log-in again.")
+                    $("#inputEmail1").val('')
+                    $("#inputPassword1").val('')
                 }
             }
         })
@@ -70,13 +55,12 @@ $('#newUserSubmitButtonEntry').on('click', function(event) {
     newUserEmailEntry = newUserEmailEntry.toLowerCase();
 
     var newUser = {
-        user_fname: newUserFirstNameEntry,
-        user_lname: newUserLastNameEntry,
-        user_email: newUserEmailEntry,
-        user_pw: $('#newUserPasswordEntry').val(),
-        user_un: $('#newUserUserNameEntry').val()
-    }
-    console.log(newUser)
+            user_fname: newUserFirstNameEntry,
+            user_lname: newUserLastNameEntry,
+            user_email: newUserEmailEntry,
+            user_pw: $('#newUserPasswordEntry').val(),
+            user_un: $('#newUserUserNameEntry').val()
+        }
         // Send the POST request.
     $.ajax('/api/users', {
         type: 'POST',

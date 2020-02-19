@@ -1,27 +1,139 @@
 var dayOfWeekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-$.each(dayOfWeekArray, function() {
-    $('#userActivityDayDetails')
-        .append($('<option></option>')
-            .attr('value', this)
-            .text(this))
-})
+for (i = 0; i < dayOfWeekArray.length; i++) {
+    $('#weekDayOptions').append($('<option>', {
+        value: dayOfWeekArray[i],
+        text: dayOfWeekArray[i]
+    }));
+}
+
 var timeOfDayArray = ['5am', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm']
-$.each(timeOfDayArray, function() {
-    $('#userActivityTimeStart')
-        .append($('<option></option>')
-            .attr('value', this)
-            .text(this))
-})
-$.each(timeOfDayArray, function() {
-    $('#userActivityTimeEnd')
-        .append($('<option></option>')
-            .attr('value', this)
-            .text(this))
-})
+
+for (k = 0; k < timeOfDayArray.length - 1; k++) {
+    $('#startTimeOptions').append($('<option>', {
+        value: timeOfDayArray[k],
+        text: timeOfDayArray[k]
+    }));
+}
+for (e = 1; e < timeOfDayArray.length; e++) {
+    $('#endTimeOptions').append($('<option>', {
+        value: timeOfDayArray[e],
+        text: timeOfDayArray[e]
+    }));
+}
+//define function: convert day of week to lower case for database entry
+function convertDayOfWeekToLowerCaseForDatabaseEntry() {
+    dayOfWeekFromOptionList = $("#weekDayOptions").val();
+    dayOfWeekFromOptionList = dayOfWeekFromOptionList.toLowerCase();
+}
+
+
+//convert start time entered to integer for database entry
+function convertStartTimeToIntegerForDatabaseEntry() {
+
+    startTimeToInteger = $('#startTimeOptions').val()
+    convertingStartTimeToArray = startTimeToInteger.split("")
+    if (startTimeToInteger == "12pm") {
+        startTimeToInteger = parseInt(convertingStartTimeToArray[0].concat(convertingStartTimeToArray[1]))
+    } else if (convertingStartTimeToArray.length == 3) {
+        if (convertingStartTimeToArray[1] == "a") {
+            startTimeToInteger = parseInt(convertingStartTimeToArray[0])
+        } else {
+            startTimeToInteger = parseInt(convertingStartTimeToArray[0]) + 12
+        }
+    } else if (convertingStartTimeToArray.length == 4) {
+        if (convertingStartTimeToArray[2] == "a") {
+            startTimeToInteger = parseInt(convertingStartTimeToArray[0].concat(convertingStartTimeToArray[1]))
+        } else {
+            startTimeToInteger = parseInt(convertingStartTimeToArray[0].concat(convertingStartTimeToArray[1])) + 12
+        }
+    }
+}
+//convert end time entered to integer for database entry
+function convertEndTimeToIntegerForDatabaseEntry() {
+    endTimeToInteger = $('#endTimeOptions').val()
+    convertingEndTimeToArray = endTimeToInteger.split("")
+    if (endTimeToInteger == "12pm") {
+        endTimeToInteger = parseInt(convertingEndTimeToArray[0].concat(convertingEndTimeToArray[1]))
+    } else if (convertingEndTimeToArray.length == 3) {
+        if (convertingEndTimeToArray[1] == "a") {
+            endTimeToInteger = parseInt(convertingEndTimeToArray[0])
+        } else {
+            endTimeToInteger = parseInt(convertingEndTimeToArray[0]) + 12
+        }
+    } else if (convertingEndTimeToArray.length == 4) {
+        if (convertingEndTimeToArray[2] == "a") {
+            endTimeToInteger = parseInt(convertingEndTimeToArray[0].concat(convertingEndTimeToArray[1]))
+        } else {
+            endTimeToInteger = parseInt(convertingEndTimeToArray[0].concat(convertingEndTimeToArray[1])) + 12
+        }
+    }
+}
+
+
+// function formatStartAndEndTimeForDisplay() {
+//     // convert start time to drop down style (eg) 2pm
+//     convertStartTime = []
+//     startTime = "";
+//     newStartTime = "";
+//     startTimeToString = "";
+//     endTimeToString = "";
+
+//     if (response._embedded.events[k].dates.start.localTime) {
+//         startTime = response._embedded.events[k].dates.start.localTime
+//         convertStartTime = startTime.split(':')
+//         newStartTime = parseInt(convertStartTime[0])
+//         console.log(newStartTime)
+//         am = "am"
+//         pm = "pm"
+//         if (newStartTime == 12) {
+//             startTimeToString = newStartTime.toString();
+//             startTimeToString = startTimeToString.concat(pm)
+//             console.log(startTimeToString)
+
+//         } else if (newStartTime > 5 && newStartTime < 12) {
+//             startTimeToString = newStartTime.toString();
+//             startTimeToString = startTimeToString.concat(am)
+//             console.log(startTimeToString)
+//         } else if (newStartTime > 12 && newStartTime < 22) {
+//             newStartTime = newStartTime - 12
+//             startTimeToString = newStartTime.toString();
+//             startTimeToString = startTimeToString.concat(pm)
+//             console.log(startTimeToString)
+//         }
+//         // convert end time to drop down style (eg) 2pm
+//         startTime = response._embedded.events[k].dates.start.localTime
+//         convertStartTime = startTime.split(':')
+//         newStartTime = parseInt(convertStartTime[0])
+//         console.log(newStartTime)
+//         newEndTime = newStartTime + 2
+//         am = "am"
+//         pm = "pm"
+//         if (newEndTime == 12) {
+//             endTimeToString = newEndTime.toString();
+//             endTimeToString = endTimeToString.concat(pm)
+//             console.log(endTimeToString)
+
+//         } else if (newEndTime > 6 && newEndTime < 12) {
+//             endTimeToString = newEndTime.toString();
+//             endTimeToString = endTimeToString.concat(am)
+//             console.log(endTimeToString)
+//         } else if (newEndTime > 12 && newEndTime <= 23) {
+//             newEndTime = newEndTime - 12
+//             endTimeToString = newEndTime.toString();
+//             endTimeToString = endTimeToString.concat(pm)
+//             console.log(endTimeToString)
+//         }
+
+//     }
+//     return;
+// }
+
+
 
 function parkVisit() {
     console.log('user activity/city/state submitted')
     $('.userViewActivityPanelHeader').html('Click an event to schedule:')
+
     var userChoice = $('#userActivityChoice').val()
     var userCity = $('#userCity').val()
     var userState = $('#userState').val()
@@ -65,19 +177,65 @@ function concertVisit() {
         var k = 0
         for (k = 0; k < response._embedded.events.length; k++) {
             // convert date to day of week
-            var dateArray = response._embedded.events[k].dates.start.localDate.split('-')
-            var newDate = dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0].slice(-2)
-            var date = new Date(newDate)
-            var eventDayOfWeek = (dayOfWeekArray[date.getDay()])
-                // convert end time to 2 hours after start time
-            var convertStartTime = []
+            dateArray = response._embedded.events[k].dates.start.localDate.split('-')
+            newDate = dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0].slice(-2)
+            date = new Date(newDate)
+            eventDayOfWeek = (dayOfWeekArray[date.getDay()])
+            console.log(eventDayOfWeek)
+
+            // convert start time to drop down style (eg) 2pm
+            convertStartTime = []
+            startTime = "";
+            newStartTime = "";
+            startTimeToString = "";
+            endTimeToString = "";
+
             if (response._embedded.events[k].dates.start.localTime) {
-                var startTime = response._embedded.events[k].dates.start.localTime
+                startTime = response._embedded.events[k].dates.start.localTime
                 convertStartTime = startTime.split(':')
                 newStartTime = parseInt(convertStartTime[0])
-                newStartTime = newStartTime.toString() + ':00'
-                var endTime = parseInt(convertStartTime[0]) + 2
-                var newEndTime = endTime.toString() + ':00'
+                console.log(newStartTime)
+                am = "am"
+                pm = "pm"
+                if (newStartTime == 12) {
+                    startTimeToString = newStartTime.toString();
+                    startTimeToString = startTimeToString.concat(pm)
+                    console.log(startTimeToString)
+
+                } else if (newStartTime > 5 && newStartTime < 12) {
+                    startTimeToString = newStartTime.toString();
+                    startTimeToString = startTimeToString.concat(am)
+                    console.log(startTimeToString)
+                } else if (newStartTime > 12 && newStartTime < 22) {
+                    newStartTime = newStartTime - 12
+                    startTimeToString = newStartTime.toString();
+                    startTimeToString = startTimeToString.concat(pm)
+                    console.log(startTimeToString)
+                }
+                // convert end time to drop down style (eg) 2pm
+                startTime = response._embedded.events[k].dates.start.localTime
+                convertStartTime = startTime.split(':')
+                newStartTime = parseInt(convertStartTime[0])
+                console.log(newStartTime)
+                newEndTime = newStartTime + 2
+                am = "am"
+                pm = "pm"
+                if (newEndTime == 12) {
+                    endTimeToString = newEndTime.toString();
+                    endTimeToString = endTimeToString.concat(pm)
+                    console.log(endTimeToString)
+
+                } else if (newEndTime > 6 && newEndTime < 12) {
+                    endTimeToString = newEndTime.toString();
+                    endTimeToString = endTimeToString.concat(am)
+                    console.log(endTimeToString)
+                } else if (newEndTime > 12 && newEndTime <= 23) {
+                    newEndTime = newEndTime - 12
+                    endTimeToString = newEndTime.toString();
+                    endTimeToString = endTimeToString.concat(pm)
+                    console.log(endTimeToString)
+                }
+
             }
 
             $('.userViewActivityPanel')
@@ -86,8 +244,8 @@ function concertVisit() {
                     .prop('activityCategory', userChoice)
                     .prop('name', response._embedded.events[k].name)
                     .attr('date', response._embedded.events[k].dates.start.localDate)
-                    .prop('stTime', newStartTime)
-                    .prop('enTime', newEndTime)
+                    .prop('stTime', startTimeToString)
+                    .prop('enTime', endTimeToString)
                     .prop('eventDayOfWeek', eventDayOfWeek)
                     .attr('id', k)
                     .html(response._embedded.events[k].name + '<br>')
@@ -121,16 +279,61 @@ function sportingEventVisit() {
             var newDate = dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0].slice(-2)
             var date = new Date(newDate)
             var eventDayOfWeek = (dayOfWeekArray[date.getDay()])
+            console.log(eventDayOfWeek)
 
-            // convert end time to 2 hours after start time
+            // convert start time to drop down style (eg) 2pm
             convertStartTime = []
+            startTime = "";
+            newStartTime = "";
+            startTimeToString = "";
+            endTimeToString = "";
+
             if (response._embedded.events[k].dates.start.localTime) {
-                var startTime = response._embedded.events[k].dates.start.localTime
+                startTime = response._embedded.events[k].dates.start.localTime
                 convertStartTime = startTime.split(':')
                 newStartTime = parseInt(convertStartTime[0])
-                newStartTime = newStartTime.toString() + ':00'
-                var endTime = parseInt(convertStartTime[0]) + 2
-                var newEndTime = endTime.toString() + ':00'
+                console.log(newStartTime)
+                am = "am"
+                pm = "pm"
+                if (newStartTime == 12) {
+                    startTimeToString = newStartTime.toString();
+                    startTimeToString = startTimeToString.concat(pm)
+                    console.log(startTimeToString)
+
+                } else if (newStartTime > 5 && newStartTime < 12) {
+                    startTimeToString = newStartTime.toString();
+                    startTimeToString = startTimeToString.concat(am)
+                    console.log(startTimeToString)
+                } else if (newStartTime > 12 && newStartTime < 22) {
+                    newStartTime = newStartTime - 12
+                    startTimeToString = newStartTime.toString();
+                    startTimeToString = startTimeToString.concat(pm)
+                    console.log(startTimeToString)
+                }
+                // convert end time to drop down style (eg) 2pm
+                startTime = response._embedded.events[k].dates.start.localTime
+                convertStartTime = startTime.split(':')
+                newStartTime = parseInt(convertStartTime[0])
+                console.log(newStartTime)
+                newEndTime = newStartTime + 2
+                am = "am"
+                pm = "pm"
+                if (newEndTime == 12) {
+                    endTimeToString = newEndTime.toString();
+                    endTimeToString = endTimeToString.concat(pm)
+                    console.log(endTimeToString)
+
+                } else if (newEndTime > 6 && newEndTime < 12) {
+                    endTimeToString = newEndTime.toString();
+                    endTimeToString = endTimeToString.concat(am)
+                    console.log(endTimeToString)
+                } else if (newEndTime > 12 && newEndTime <= 23) {
+                    newEndTime = newEndTime - 12
+                    endTimeToString = newEndTime.toString();
+                    endTimeToString = endTimeToString.concat(pm)
+                    console.log(endTimeToString)
+                }
+
             }
 
             $('.userViewActivityPanel')
@@ -139,8 +342,8 @@ function sportingEventVisit() {
                     .prop('activityCategory', userChoice)
                     .prop('name', response._embedded.events[k].name)
                     .attr('date', response._embedded.events[k].dates.start.localDate)
-                    .prop('stTime', newStartTime)
-                    .prop('enTime', newEndTime)
+                    .prop('stTime', startTimeToString)
+                    .prop('enTime', endTimeToString)
                     .prop('eventDayOfWeek', eventDayOfWeek)
                     .attr('id', k)
                     .html(response._embedded.events[k].name + '<br>')
@@ -221,7 +424,7 @@ function userGeneratedEvent() {
     userFinalEventEntrySubmitButton()
 }
 
-$('#userSubmitInitialActivityButton').on('click', function(userEnterActivityCityState) {
+$('#userSubmitInitialActivityButton').on('click', function() {
     event.preventDefault()
 
     var userChoice = $('#userActivityChoice').val()
@@ -259,16 +462,16 @@ function destinationDivClick() {
         var nameForDatabase = this.name
         if (this.eventDayOfWeek) {
             var dayOfWeekForDatabase = this.eventDayOfWeek
-            dayOfWeekForDatabase = dayOfWeekForDatabase.toLowerCase();
+
         }
         var startTimeForDatabase = this.stTime
         var endTimeForDatabase = this.enTime
 
         $('#modalForUserFinalEntry').modal('show')
         $('#locationFromActivityPanelInput').html(nameForDatabase)
-        $('#dayOfWeekFromActivityPanelInput').val(dayOfWeekForDatabase)
-        $('#startTimeFromActivityPanelInput').val(startTimeForDatabase)
-        $('#endTimeFromActivityPanelInput').val(endTimeForDatabase)
+        $('#weekDayOptions').val(dayOfWeekForDatabase)
+        $('#startTimeOptions').val(startTimeForDatabase)
+        $('#endTimeOptions').val(endTimeForDatabase)
 
         userFinalEventEntrySubmitButton()
     })
@@ -277,20 +480,21 @@ function destinationDivClick() {
 function userFinalEventEntrySubmitButton() {
     $('#userFinalEventEntrySubmitButton').on('click', function(event) {
         event.preventDefault()
-        var dayOfWeekForDatabase = $('#dayOfWeekFromActivityPanelInput').val()
-        dayOfWeekForDatabase = dayOfWeekForDatabase.toLowerCase();
-        var convertingStartTimeToInteger = $('#startTimeFromActivityPanelInput').val()
-        convertingStartTimeToInteger = convertingStartTimeToInteger.split(':')[0]
+        var userIdForNewTaskFromLocalStorage = localStorage.getItem('userIdForCalendarStart');
+        console.log(userIdForNewTaskFromLocalStorage);
 
-        var convertingEndTimeToInteger = $('#endTimeFromActivityPanelInput').val()
-        convertingEndTimeToInteger = convertingEndTimeToInteger.split(':')[0]
-
+        convertDayOfWeekToLowerCaseForDatabaseEntry();
+        convertStartTimeToIntegerForDatabaseEntry();
+        convertEndTimeToIntegerForDatabaseEntry()
+        console.log(dayOfWeekFromOptionList)
+        console.log(startTimeToInteger)
+        console.log(endTimeToInteger)
         var newTask = {
-            user_id: 7,
+            user_id: userIdForNewTaskFromLocalStorage,
             task_name: $('#locationFromActivityPanelInput').val(),
-            task_day: dayOfWeekForDatabase,
-            task_stime: convertingStartTimeToInteger,
-            task_etime: convertingEndTimeToInteger,
+            task_day: dayOfWeekFromOptionList,
+            task_stime: startTimeToInteger,
+            task_etime: endTimeToInteger,
             task_comment: $('#commentFromActivityPanelInput').val()
         }
 
@@ -301,6 +505,7 @@ function userFinalEventEntrySubmitButton() {
 
         }).then(
             function(data) {
+                console.log(data[0])
                 console.log('Added new task')
                     // Reload the page to get the updated list
                 location.reload()

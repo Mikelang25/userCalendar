@@ -47,12 +47,6 @@ h3 {
     font-weight: 150;
 }
 
-#commentFromActivityPanelInput {
-    height: 50px;
-    font-size: 20px;
-    font-weight: 150;
-}
-
 .day {
     height: 700px;
     border: 1.5pt groove black;
@@ -268,7 +262,6 @@ h3 {
 #userSubmitInitialActivityButton:hover,
 #delete-all:hover,
 #sign-out:hover,
-#commentFromActivityPanelInput:hover,
 #delete-task:hover,
 #update-task:hover,
 #close-task:hover {

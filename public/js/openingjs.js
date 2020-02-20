@@ -19,6 +19,7 @@ $('#userSubmitButton1').on('click', function(event) {
                     if (returningUserPasswordEntered == data[k].user_pw) {
                         $("#incorrectEntryDiv").text("The email and password match.")
                         localStorage.setItem('userIdForCalendarStart', data[k].id);
+                        localStorage.setItem('userEmailForCalendarStart', data[k].user_email);
                         window.location.href = "/calendar"
                         break;
                     } else {
@@ -72,6 +73,7 @@ $('#newUserSubmitButtonEntry').on('click', function(event) {
         function(data) {
             console.log('Added new user')
             localStorage.setItem('userIdForCalendarStart', data.id);
+            localStorage.setItem('userEmailForCalendarStart', data.user_email);
             window.location.href = "/calendar"
         }
     )

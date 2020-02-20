@@ -4,8 +4,6 @@ var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 's
 $(document).ready(function() {
     var userIdForCalendarStartFromLocalStorage = localStorage.getItem('userIdForCalendarStart')
     console.log(userIdForCalendarStartFromLocalStorage)
-    var userIdForCalendarStartFromLocalStorage = 7;
-    console.log(userIdForCalendarStartFromLocalStorage)
     $.get("/api/tasks/" + userIdForCalendarStartFromLocalStorage, function(data) {
         var tasks = data;
         for (var i = 0; i < days.length; i++) {

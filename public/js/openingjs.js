@@ -43,7 +43,9 @@ $('#newUserSubmitButtonForNewUserModal').on('click', function(event) {
     $('#modalForUserLogin').modal('hide')
     $('#modalForNewUserEntry').modal('show')
 })
-
+$("#modalCloseX").on('click', function() {
+    window.location.href = "/";
+})
 $('#newUserSubmitButtonEntry').on('click', function(event) {
     event.preventDefault()
     console.log('New User Submitting data')

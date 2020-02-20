@@ -24,27 +24,38 @@ h3 {
 }
 
 #locationFromActivityPanelInput {
-    height: 50px;
-    font-size: 20px;
-    font-weight: 150;
+    height: 60px;
+    color: midnightblue;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#commentFromActivityPanelInput {
+    height: 60px;
+    color: midnightblue;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #weekDayOptions {
     padding: 0;
-    font-size: 20px;
-    font-weight: 150;
+    color: midnightblue;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #startTimeOptions {
     padding: 0;
-    font-size: 20px;
-    font-weight: 150;
+    color: midnightblue;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #endTimeOptions {
     padding: 0;
-    font-size: 20px;
-    font-weight: 150;
+    color: midnightblue;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .day {

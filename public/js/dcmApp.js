@@ -69,67 +69,6 @@ function convertEndTimeToIntegerForDatabaseEntry() {
     }
 }
 
-
-// function formatStartAndEndTimeForDisplay() {
-//     // convert start time to drop down style (eg) 2pm
-//     convertStartTime = []
-//     startTime = "";
-//     newStartTime = "";
-//     startTimeToString = "";
-//     endTimeToString = "";
-
-//     if (response._embedded.events[k].dates.start.localTime) {
-//         startTime = response._embedded.events[k].dates.start.localTime
-//         convertStartTime = startTime.split(':')
-//         newStartTime = parseInt(convertStartTime[0])
-//         console.log(newStartTime)
-//         am = "am"
-//         pm = "pm"
-//         if (newStartTime == 12) {
-//             startTimeToString = newStartTime.toString();
-//             startTimeToString = startTimeToString.concat(pm)
-//             console.log(startTimeToString)
-
-//         } else if (newStartTime > 5 && newStartTime < 12) {
-//             startTimeToString = newStartTime.toString();
-//             startTimeToString = startTimeToString.concat(am)
-//             console.log(startTimeToString)
-//         } else if (newStartTime > 12 && newStartTime < 22) {
-//             newStartTime = newStartTime - 12
-//             startTimeToString = newStartTime.toString();
-//             startTimeToString = startTimeToString.concat(pm)
-//             console.log(startTimeToString)
-//         }
-//         // convert end time to drop down style (eg) 2pm
-//         startTime = response._embedded.events[k].dates.start.localTime
-//         convertStartTime = startTime.split(':')
-//         newStartTime = parseInt(convertStartTime[0])
-//         console.log(newStartTime)
-//         newEndTime = newStartTime + 2
-//         am = "am"
-//         pm = "pm"
-//         if (newEndTime == 12) {
-//             endTimeToString = newEndTime.toString();
-//             endTimeToString = endTimeToString.concat(pm)
-//             console.log(endTimeToString)
-
-//         } else if (newEndTime > 6 && newEndTime < 12) {
-//             endTimeToString = newEndTime.toString();
-//             endTimeToString = endTimeToString.concat(am)
-//             console.log(endTimeToString)
-//         } else if (newEndTime > 12 && newEndTime <= 23) {
-//             newEndTime = newEndTime - 12
-//             endTimeToString = newEndTime.toString();
-//             endTimeToString = endTimeToString.concat(pm)
-//             console.log(endTimeToString)
-//         }
-
-//     }
-//     return;
-// }
-
-
-
 function parkVisit() {
     console.log('user activity/city/state submitted')
     $('.userViewActivityPanelHeader').html('Click an event to schedule:')
@@ -472,6 +411,10 @@ function destinationDivClick() {
         $('#weekDayOptions').val(dayOfWeekForDatabase)
         $('#startTimeOptions').val(startTimeForDatabase)
         $('#endTimeOptions').val(endTimeForDatabase)
+
+        $("#modalCloseX").on('click', function() {
+            window.location.href = "/calendar";
+        })
 
         userFinalEventEntrySubmitButton()
     })

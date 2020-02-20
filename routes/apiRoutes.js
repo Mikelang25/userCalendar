@@ -37,7 +37,7 @@ module.exports = function(app) {
     })
 
     //Get all tasks and emails them to the user 
-    app.get('/api/email/tasks/:id', function(req, res) {
+    app.get('/api/email/tasks/:id/:email', function(req, res) {
         db.Task.findAll({
             where: { user_id: req.params.id },
             order: [
@@ -60,7 +60,7 @@ module.exports = function(app) {
             
             const draft = nylas.drafts.build({
                 subject: 'Your Upcoming Schedule',
-                to: [{ name: 'Mike', email: 'michaellang2525@yahoo.com'}],
+                to: [{ name: 'MyCalendar User', email: req.params.email}],
                 body: taskList
             });
             

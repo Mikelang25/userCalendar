@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "Carnelli7ct!",
+        "password": "",
         "database": "user_calendar_db",
         "host": "localhost",
         "dialect": "mysql"

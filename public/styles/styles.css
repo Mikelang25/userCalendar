@@ -255,7 +255,8 @@ h3 {
 #userFinalEventEntrySubmitButton,
 #delete-task,
 #update-task,
-#close-task {
+#close-task,
+#send-email {
     transition: all 0.2s;
     background-color: black;
     color: whitesmoke;
@@ -275,7 +276,8 @@ h3 {
 #sign-out:hover,
 #delete-task:hover,
 #update-task:hover,
-#close-task:hover {
+#close-task:hover,
+#send-email:hover {
     background-color: whitesmoke;
     color: black;
     font-size: 8pt;

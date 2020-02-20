@@ -2,8 +2,10 @@ var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 's
 
 
 $(document).ready(function() {
-    var userIdForCalendarStartFromLocalStorage = localStorage.getItem('userIdForCalendarStart')
+    var userIdForCalendarStartFromLocalStorage = localStorage.getItem('userIdForCalendarStart');
+    var userEmail = localStorage.getItem('userEmailForCalendarStart');
     console.log(userIdForCalendarStartFromLocalStorage)
+    console.log(userEmail)
     $.get("/api/tasks/" + userIdForCalendarStartFromLocalStorage, function(data) {
         var tasks = data;
         for (var i = 0; i < days.length; i++) {
@@ -131,6 +133,17 @@ $(document).ready(function() {
                 location.reload();
             }
         );
+    });
+
+    $(document).on("click", "#send-email", function() {
+        $.get("/api/email/tasks/" + userIdForCalendarStartFromLocalStorage + "/" + userEmail, function(data) {
+            console.log("email has been sent")
+        });
+    });
+
+    $(document).on("click", "#sign-out", function() {
+        localStorage.clear();
+        window.location.href="/"
     });
 
 });

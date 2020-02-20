@@ -1,4 +1,15 @@
 var db = require('../models')
+const Nylas = require('nylas');
+require('dotenv').config()
+
+
+Nylas.config({
+    clientId: process.env.NYLAS_CLIENT,
+    clientSecret: process.env.NYLAS_SECRET,
+});
+
+const nylas = Nylas.with(process.env.NYLAS_AUTH);
+
 
 module.exports = function(app) {
     // Get all users for login authorization by id
@@ -11,12 +22,10 @@ module.exports = function(app) {
         })
     })
 
-
-
     // Get all tasks for specific user id
     app.get('/api/tasks/:id', function(req, res) {
         db.Task.findAll({
-            where: { user_id: 7 },
+            where: { user_id: req.params.id },
             order: [
                 ['task_day', 'ASC'],
                 ['task_stime', 'ASC']
@@ -24,6 +33,41 @@ module.exports = function(app) {
         }).then(function(dbTasks) {
             console.log(dbTasks)
             res.json(dbTasks)
+        })
+    })
+
+    //Get all tasks and emails them to the user 
+    app.get('/api/email/tasks/:id', function(req, res) {
+        db.Task.findAll({
+            where: { user_id: req.params.id },
+            order: [
+                ['task_day', 'ASC'],
+                ['task_stime', 'ASC']
+            ]
+        }).then(function(dbTasks) {
+            console.log(dbTasks)
+            res.json(dbTasks)
+            
+            var taskList = "<h1>Your Schedule</h1><br>"
+            for(var i=0;i<dbTasks.length;i++){
+                taskList += "Event Day: " + dbTasks[i].task_day + "<br>" + 
+                            "Event Name: " + dbTasks[i].task_name + "<br>" + 
+                            "Start Time: " + dbTasks[i].task_stime + "<br>" + 
+                            "End Time: " + dbTasks[i].task_etime + "<br>" +
+                            "Event Notes: " + dbTasks[i].task_comment + "<br><br>"
+            }
+            taskList += "<br>From, <br> Your MyCalendar Team"
+            
+            const draft = nylas.drafts.build({
+                subject: 'Your Upcoming Schedule',
+                to: [{ name: 'Mike', email: 'michaellang2525@yahoo.com'}],
+                body: taskList
+            });
+            
+            // Send the draft
+            draft.send().then(message => {
+                console.log(`${message.id} was sent`);
+            });
         })
     })
 
